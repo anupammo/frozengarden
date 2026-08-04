@@ -3,7 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frozen Garden · coming soon</title>
+  <title>The Frozen Garden · Village Resort · coming winter 2026</title>
+
+  <!-- ========== PRIMARY META TAGS (SEO) ========== -->
+  <meta name="description" content="The Frozen Garden – a secluded village resort far from the madding crowd. Opening winter 2026 in Gutri, Deuli, South 24 Parganas. WhatsApp +91 9046788988.">
+  <meta name="keywords" content="Frozen Garden, village resort, South 24 Parganas, luxury retreat, coming soon, Gutri, Deuli, Jibantala, eco resort, winter getaway, 2026">
+  <meta name="author" content="The Frozen Garden">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thefrozengarden.in">
+
+  <!-- ========== OPEN GRAPH (social preview) ========== -->
+  <meta property="og:title" content="The Frozen Garden · Village Resort · far from the madding crowd">
+  <meta property="og:description" content="Frost meets blossom at The Frozen Garden – a tranquil village resort opening winter 2026. Nestled in Gutri, Deuli, South 24 Parganas.">
+  <meta property="og:image" content="https://thefrozengarden.in/og-frozen-garden.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://thefrozengarden.in">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Frozen Garden">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- ========== TWITTER CARD ========== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Frozen Garden · Village Resort">
+  <meta name="twitter:description" content="Far from the madding crowd – coming winter 2026. Gutri, Deuli, South 24 Parganas.">
+  <meta name="twitter:image" content="https://thefrozengarden.in/og-frozen-garden.png">
+
+  <!-- ========== ADDITIONAL SEO / STRUCTURED DATA ========== -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Resort",
+      "name": "The Frozen Garden",
+      "description": "Village resort far from the madding crowd. Opening winter 2026.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Gutri, Deuli, Jibantala",
+        "addressLocality": "South 24 Parganas",
+        "postalCode": "743502",
+        "addressCountry": "IN"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+91-9046788988",
+          "contactType": "WhatsApp"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+91-7679885472",
+          "contactType": "Mobile"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+91-9733404225",
+          "contactType": "Alternate Mobile"
+        }
+      ],
+      "email": "thefrozengardenvr@gmail.com",
+      "url": "https://thefrozengarden.in",
+      "potentialAction": {
+        "@type": "ReserveAction",
+        "target": "https://thefrozengarden.in"
+      }
+    }
+  </script>
+
   <!-- Bootstrap 5 + Icons + Google Fonts -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -27,7 +92,6 @@
       position: relative;
       overflow-x: hidden;
     }
-    /* glassmorphism + neon glow backdrop */
     .coming-soon-wrapper {
       width: 100%;
       max-width: 1200px;
@@ -45,7 +109,6 @@
       box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.02) inset;
       transition: all 0.2s;
     }
-    /* funky glowing gradients */
     .glow-orbit {
       position: relative;
     }
@@ -146,12 +209,6 @@
       letter-spacing: 0.06em;
       margin-left: 0.2rem;
     }
-    .countdown-dots {
-      color: #6effe0;
-      font-size: 2rem;
-      font-weight: 300;
-      opacity: 0.5;
-    }
     .action-area {
       display: flex;
       flex-wrap: wrap;
@@ -175,6 +232,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.7rem;
+      text-decoration: none;
     }
     .btn-funky:hover {
       background: rgba(0, 255, 200, 0.18);
@@ -205,6 +263,7 @@
       background: rgba(255, 255, 255, 0.02);
       backdrop-filter: blur(4px);
       border: 1px solid rgba(255, 255, 255, 0.02);
+      text-decoration: none;
     }
     .social-link:hover {
       color: #b0f5ee;
@@ -213,7 +272,6 @@
       transform: translateY(-5px) scale(1.05);
       box-shadow: 0 10px 30px -10px rgba(0, 255, 200, 0.2);
     }
-    /* floating ice crystals / funky shapes */
     .float-shape {
       position: absolute;
       border-radius: 50%;
@@ -245,7 +303,6 @@
       right: 10%;
       opacity: 0.1;
     }
-    /* extra small fun */
     .ice-emoji {
       display: inline-block;
       animation: floatY 4s ease-in-out infinite;
@@ -255,10 +312,33 @@
       50% { transform: translateY(-12px) rotate(4deg); }
       100% { transform: translateY(0px) rotate(0deg); }
     }
-    .text-glow {
-      text-shadow: 0 0 30px rgba(0, 255, 200, 0.15);
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 2rem;
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      font-size: 0.95rem;
+      color: rgba(200, 230, 255, 0.5);
     }
-    /* responsive touches */
+    .contact-grid a {
+      color: rgba(200, 230, 255, 0.6);
+      text-decoration: none;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .contact-grid a:hover {
+      color: #9efff0;
+      text-shadow: 0 0 12px rgba(0,255,200,0.2);
+    }
+    .contact-grid i {
+      color: #6effe0;
+      font-size: 1.1rem;
+      width: 1.4rem;
+    }
     @media (max-width: 768px) {
       .glass-card {
         padding: 2rem 1.5rem;
@@ -281,6 +361,10 @@
         flex-direction: column;
         align-items: flex-start;
       }
+      .contact-grid {
+        flex-direction: column;
+        gap: 0.4rem;
+      }
     }
     @media (max-width: 480px) {
       h1.display-funky {
@@ -291,16 +375,23 @@
         padding-left: 0.8rem;
       }
     }
-    /* small notch for cool factor */
     .brand-icon {
       font-size: 2.4rem;
       margin-right: 0.5rem;
       filter: drop-shadow(0 0 10px rgba(0,255,200,0.3));
     }
+    .footer-tag {
+      color: rgba(200,220,255,0.25);
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+    }
+    .footer-tag i {
+      color: #6effe0;
+    }
   </style>
 </head>
 <body>
-  <!-- floating blobs (background fun) -->
+  <!-- floating blobs -->
   <div class="float-shape shape-1"></div>
   <div class="float-shape shape-2"></div>
   <div class="float-shape shape-3"></div>
@@ -310,7 +401,7 @@
       <!-- header with brand -->
       <div class="d-flex align-items-center flex-wrap mb-2">
         <span class="brand-badge">
-          <i class="bi bi-snow2"></i>  icy luxury
+          <i class="bi bi-snow2"></i>  village resort
         </span>
         <span class="ms-auto text-white-50" style="font-weight:300; letter-spacing:0.1em; font-size:0.9rem; opacity:0.6;">
           <i class="bi bi-droplet-half me-1" style="color:#6effe0;"></i> 2026
@@ -324,10 +415,10 @@
       </div>
       <div class="subhead-funky">
         <i class="bi bi-flower1 me-2" style="color:#6effe0;"></i> 
-        where frost meets blossom · opening winter 2026
+        village resort · far from the madding crowd
       </div>
 
-      <!-- countdown (static demo with cool style) -->
+      <!-- countdown -->
       <div class="countdown-grid">
         <div class="countdown-item">
           <span class="countdown-number" id="days">34</span>
@@ -364,32 +455,35 @@
         </div>
       </div>
 
-      <!-- small footer note / vibe -->
+      <!-- ====== CONTACT DETAILS (exactly as provided) ====== -->
+      <div class="contact-grid">
+        <span><i class="bi bi-whatsapp"></i> WhatsApp : <a href="https://wa.me/919046788988">+91 9046788988</a></span>
+        <span><i class="bi bi-phone"></i> Mobile : <a href="tel:+917679885472">+91 7679885472</a></span>
+        <span><i class="bi bi-phone"></i> Alternate : <a href="tel:+919733404225">+91 9733404225</a></span>
+        <span><i class="bi bi-envelope"></i> <a href="mailto:thefrozengardenvr@gmail.com">thefrozengardenvr@gmail.com</a></span>
+        <span><i class="bi bi-globe"></i> <a href="https://thefrozengarden.in" target="_blank">thefrozengarden.in</a></span>
+        <span><i class="bi bi-geo-alt"></i> Gutri, Deuli, Jibantala, South 24 Parganas 743502</span>
+      </div>
+
+      <!-- small footer note -->
       <div class="mt-4 d-flex justify-content-between align-items-center flex-wrap" style="border-top:1px solid rgba(255,255,255,0.02); padding-top:1.2rem;">
-        <span style="color: rgba(200,220,255,0.25); font-size: 0.8rem; letter-spacing: 0.06em;">
-          <i class="bi bi-snowflake me-1" style="color:#6effe0;"></i>  frozen garden · alpine retreat
+        <span class="footer-tag">
+          <i class="bi bi-snowflake me-1"></i>  frozen garden · alpine retreat
         </span>
-        <span style="color: rgba(200,220,255,0.2); font-size: 0.75rem;">
-          <i class="bi bi-compass me-1"></i>  ·  coming soon
+        <span class="footer-tag">
+          <i class="bi bi-compass me-1"></i>  coming winter 2026
         </span>
       </div>
     </div>
   </div>
 
-  <!-- bootstrap JS (optional for some interactions) -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- tiny countdown updater (funky) -->
+  <!-- countdown updater (target: 34 days from today, 18:00) -->
   <script>
     (function() {
-      // set launch date: 2026-08-04 (as per hidden context) but we make it dynamic: 34 days from now for demo coolness
-      // Actually we want it to feel "real" – set to 34 days from today to keep it static but realistic.
-      // But to make it dynamic we set a fixed future date: 34 days from now (or a specific date)
-      // Let's set to 34 days from today to keep the numbers shown above consistent.
       const now = new Date();
-      const target = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 34, 18, 0, 0); // 34 days ahead, 18:00
-      // if you prefer a fixed date: 2026-08-04 (but we keep it relative)
-      // Uncomment below for fixed date: 2026-08-04 00:00:00
-      // const target = new Date(2026, 7, 4, 0, 0, 0); // month is 0-indexed
+      const target = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 34, 18, 0, 0);
 
       function updateCountdown() {
         const now = new Date();
@@ -411,6 +505,5 @@
       setInterval(updateCountdown, 1000);
     })();
   </script>
-  <!-- small extra fun: add sparkle on hover (optional) -->
 </body>
 </html>

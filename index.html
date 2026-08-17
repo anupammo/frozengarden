@@ -119,8 +119,15 @@
     .nav-toggle{ display:none; color:var(--ink); font-size:1.5rem; background:none; border:none; }
 
     /* ---------- hero ---------- */
-    .hero{ position:relative; z-index:1; padding:9.5rem 1.5rem 5rem; }
-    .hero-inner{ max-width:1240px; margin:0 auto; }
+    .hero{ position:relative; z-index:1; padding:9.5rem 1.5rem 5rem; overflow:hidden; }
+    .hero::before{
+      content:""; position:absolute; inset:0; z-index:0;
+      background:
+        linear-gradient(90deg, rgba(11,14,26,0.94) 0%, rgba(11,14,26,0.82) 45%, rgba(11,14,26,0.55) 100%),
+        linear-gradient(to top, rgba(11,14,26,0.9), transparent 40%),
+        url('img/hero.jpg') center/cover no-repeat;
+    }
+    .hero-inner{ max-width:1240px; margin:0 auto; position:relative; z-index:1; }
     .eyebrow{
       display:inline-flex; align-items:center; gap:.5rem;
       background:rgba(0,255,200,0.08); border:1px solid rgba(0,255,200,0.2);
@@ -170,15 +177,15 @@
     .about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center; }
     .about-visual{
       aspect-ratio:4/5; border-radius:2rem; position:relative; overflow:hidden;
-      background:
-        radial-gradient(circle at 25% 20%, rgba(0,255,200,0.18), transparent 55%),
-        radial-gradient(circle at 80% 75%, rgba(255,180,198,0.14), transparent 50%),
-        linear-gradient(160deg, #131a2e, #0b0e1a 70%);
+      background:#0b0e1a url('img/img1.png') center/cover no-repeat;
       border:1px solid var(--line);
-      display:flex; align-items:center; justify-content:center;
+      display:flex; align-items:flex-end;
     }
-    .about-visual i{ font-size:3.5rem; color:rgba(110,255,224,0.3); }
-    .about-visual .cap{ position:absolute; bottom:1.6rem; left:1.6rem; right:1.6rem; font-size:.85rem; color:var(--muted-2); }
+    .about-visual::after{
+      content:""; position:absolute; inset:0;
+      background:linear-gradient(to top, rgba(6,9,18,0.85) 0%, rgba(6,9,18,0.25) 35%, transparent 60%);
+    }
+    .about-visual .cap{ position:relative; z-index:1; margin:1.6rem; font-size:.85rem; color:var(--ink); }
     .about-points{ display:grid; gap:1.3rem; margin-top:2rem; }
     .about-point{ display:flex; gap:1rem; align-items:flex-start; }
     .about-point i{ color:var(--frost); font-size:1.2rem; margin-top:.2rem; }
@@ -189,15 +196,16 @@
     .stay-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1.6rem; }
     .stay-card{ padding:0; overflow:hidden; transition:.3s; display:flex; flex-direction:column; }
     .stay-card:hover{ transform:translateY(-6px); border-color:rgba(0,255,200,0.25); box-shadow:0 30px 60px -20px rgba(0,0,0,0.6); }
-    .stay-media{ height:200px; position:relative; display:flex; align-items:center; justify-content:center; }
-    .stay-media i{ font-size:2.6rem; color:rgba(255,255,255,0.25); }
+    .stay-media{ height:200px; position:relative; display:flex; align-items:center; justify-content:center; background-size:cover; background-position:center; background-color:#10182b; }
+    .stay-media::after{ content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(6,9,18,0.6), rgba(6,9,18,0.05) 55%); }
+    .stay-media i{ display:none; }
     .stay-media .tag{
-      position:absolute; top:1rem; left:1rem; background:rgba(0,0,0,0.35); backdrop-filter:blur(4px);
+      position:absolute; z-index:1; top:1rem; left:1rem; background:rgba(0,0,0,0.35); backdrop-filter:blur(4px);
       border:1px solid var(--line); border-radius:100px; padding:.3rem 1rem; font-size:.75rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--frost);
     }
-    .stay-media.m1{ background:linear-gradient(150deg, rgba(0,255,200,0.22), #10182b 75%); }
-    .stay-media.m2{ background:linear-gradient(150deg, rgba(179,128,255,0.22), #10182b 75%); }
-    .stay-media.m3{ background:linear-gradient(150deg, rgba(255,180,198,0.22), #10182b 75%); }
+    .stay-media.m1{ background-image:url('img/stay-cottage.jpg'); }
+    .stay-media.m2{ background-image:url('img/stay-villa.jpg'); }
+    .stay-media.m3{ background-image:url('img/stay-pond.jpg'); }
     .stay-body{ padding:1.6rem 1.6rem 1.8rem; display:flex; flex-direction:column; gap:.7rem; flex:1; }
     .stay-body h3{ font-size:1.25rem; font-weight:700; }
     .stay-body p{ color:var(--muted); font-size:.9rem; line-height:1.6; flex:1; }
@@ -208,11 +216,22 @@
 
     /* ---------- amenities ---------- */
     .amenity-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:1.2rem; }
-    .amenity-card{ padding:1.8rem 1.4rem; text-align:left; transition:.25s; }
-    .amenity-card:hover{ border-color:rgba(0,255,200,0.25); background:rgba(18,25,45,0.75); }
+    .amenity-card{ padding:1.8rem 1.4rem; text-align:left; transition:.25s; position:relative; overflow:hidden; background-size:cover; background-position:center; min-height:170px; }
+    .amenity-card::before{ content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(6,9,18,0.94) 20%, rgba(6,9,18,0.78)); transition:.25s; }
+    .amenity-card > *{ position:relative; z-index:1; }
+    .amenity-card:hover{ border-color:rgba(0,255,200,0.25); transform:translateY(-4px); }
+    .amenity-card:hover::before{ background:linear-gradient(to top, rgba(6,9,18,0.9) 20%, rgba(6,9,18,0.62)); }
     .amenity-card i{ font-size:1.6rem; color:var(--frost); margin-bottom:1rem; display:block; }
     .amenity-card h4{ font-size:1rem; font-weight:600; margin-bottom:.4rem; }
-    .amenity-card p{ font-size:.85rem; color:var(--muted); line-height:1.55; }
+    .amenity-card p{ font-size:.85rem; color:var(--ink); opacity:.82; line-height:1.55; }
+    .amenity-card.a1{ background-image:url('img/am-bonfire.jpg'); }
+    .amenity-card.a2{ background-image:url('img/am-cycle.jpg'); }
+    .amenity-card.a3{ background-image:url('img/am-kitchen.jpg'); }
+    .amenity-card.a4{ background-image:url('img/am-wifi.jpg'); }
+    .amenity-card.a5{ background-image:url('img/am-garden.jpg'); }
+    .amenity-card.a6{ background-image:url('img/am-deck.jpg'); }
+    .amenity-card.a7{ background-image:url('img/am-parking.jpg'); }
+    .amenity-card.a8{ background-image:url('img/am-care.jpg'); }
 
     /* ---------- booking widget ---------- */
     .booking{
@@ -244,14 +263,18 @@
 
     /* ---------- experiences ---------- */
     .exp-row{ display:grid; grid-template-columns:repeat(4, 1fr); gap:1.2rem; }
-    .exp-card{ padding:1.8rem; position:relative; min-height:210px; display:flex; flex-direction:column; justify-content:flex-end; overflow:hidden; }
+    .exp-card{ padding:1.8rem; position:relative; min-height:230px; display:flex; flex-direction:column; justify-content:flex-end; overflow:hidden; background-size:cover; background-position:center; }
     .exp-card::before{
-      content:''; position:absolute; inset:0; opacity:.18; background:radial-gradient(circle at 30% 20%, var(--c1), transparent 60%);
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(to top, rgba(6,9,18,0.92) 8%, rgba(6,9,18,0.4) 60%, rgba(6,9,18,0.2));
     }
-    .exp-card.e1{ --c1:#6effe0; } .exp-card.e2{ --c1:#b380ff; } .exp-card.e3{ --c1:#ffb4c6; } .exp-card.e4{ --c1:#4ad4ff; }
-    .exp-card .num{ font-family:'Fraunces', serif; font-style:italic; font-size:2rem; color:rgba(255,255,255,0.18); position:absolute; top:1.4rem; right:1.6rem; }
-    .exp-card h4{ font-size:1.05rem; font-weight:700; position:relative; margin-bottom:.4rem; }
-    .exp-card p{ font-size:.85rem; color:var(--muted); position:relative; line-height:1.5; }
+    .exp-card.e1{ background-image:url('img/exp-walks.jpg'); }
+    .exp-card.e2{ background-image:url('img/exp-garden.jpg'); }
+    .exp-card.e3{ background-image:url('img/exp-boat.jpg'); }
+    .exp-card.e4{ background-image:url('img/exp-bonfire.jpg'); }
+    .exp-card .num{ font-family:'Fraunces', serif; font-style:italic; font-size:2rem; color:rgba(255,255,255,0.55); position:absolute; top:1.2rem; right:1.6rem; z-index:1; text-shadow:0 2px 12px rgba(0,0,0,0.5); }
+    .exp-card h4{ font-size:1.05rem; font-weight:700; position:relative; z-index:1; margin-bottom:.4rem; }
+    .exp-card p{ font-size:.85rem; color:var(--ink); opacity:.85; position:relative; z-index:1; line-height:1.5; }
 
     /* ---------- testimonial ---------- */
     .quote-wrap{ max-width:820px; margin:0 auto; text-align:center; }
@@ -368,8 +391,7 @@
   <section id="about">
     <div class="section-inner about-grid">
       <div class="about-visual">
-        <i class="bi bi-flower1"></i>
-        <div class="cap">The garden courtyard — replace with your own photography before launch.</div>
+        <div class="cap">The garden courtyard at dusk — pond, firepit and open fields.</div>
       </div>
       <div>
         <span class="section-eyebrow">The place</span>
@@ -447,14 +469,14 @@
         <h2 class="section-title">Everything kept simple, on purpose.</h2>
       </div>
       <div class="amenity-grid">
-        <div class="amenity-card glass"><i class="bi bi-fire"></i><h4>Evening bonfire</h4><p>Every night by the garden, weather permitting.</p></div>
-        <div class="amenity-card glass"><i class="bi bi-bicycle"></i><h4>Village cycling</h4><p>Bicycles on request for rides through Deuli.</p></div>
-        <div class="amenity-card glass"><i class="bi bi-cup-hot"></i><h4>Farm-to-table kitchen</h4><p>Bengali home-style meals, cooked fresh per meal.</p></div>
-        <div class="amenity-card glass"><i class="bi bi-wifi"></i><h4>Quiet wifi zones</h4><p>Connected where you need it, offline where you don't.</p></div>
-        <div class="amenity-card glass"><i class="bi bi-tree"></i><h4>Private gardens</h4><p>Seasonal blooms tended by our own gardeners.</p></div>
-        <div class="amenity-card glass"><i class="bi bi-water"></i><h4>Pond deck</h4><p>A still-water deck for reading and evening tea.</p></div>
-        <div class="amenity-card glass"><i class="bi bi-car-front"></i><h4>On-site parking</h4><p>Free parking for self-driven guests.</p></div>
-        <div class="amenity-card glass"><i class="bi bi-heart-pulse"></i><h4>Caretaker on call</h4><p>A resident team, day and night, for anything you need.</p></div>
+        <div class="amenity-card glass a1"><i class="bi bi-fire"></i><h4>Evening bonfire</h4><p>Every night by the garden, weather permitting.</p></div>
+        <div class="amenity-card glass a2"><i class="bi bi-bicycle"></i><h4>Village cycling</h4><p>Bicycles on request for rides through Deuli.</p></div>
+        <div class="amenity-card glass a3"><i class="bi bi-cup-hot"></i><h4>Farm-to-table kitchen</h4><p>Bengali home-style meals, cooked fresh per meal.</p></div>
+        <div class="amenity-card glass a4"><i class="bi bi-wifi"></i><h4>Quiet wifi zones</h4><p>Connected where you need it, offline where you don't.</p></div>
+        <div class="amenity-card glass a5"><i class="bi bi-tree"></i><h4>Private gardens</h4><p>Seasonal blooms tended by our own gardeners.</p></div>
+        <div class="amenity-card glass a6"><i class="bi bi-water"></i><h4>Pond deck</h4><p>A still-water deck for reading and evening tea.</p></div>
+        <div class="amenity-card glass a7"><i class="bi bi-car-front"></i><h4>On-site parking</h4><p>Free parking for self-driven guests.</p></div>
+        <div class="amenity-card glass a8"><i class="bi bi-heart-pulse"></i><h4>Caretaker on call</h4><p>A resident team, day and night, for anything you need.</p></div>
       </div>
     </div>
   </section>

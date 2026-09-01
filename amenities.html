@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amenities · The Frozen Garden · Village Resort, Gutri, Deuli</title>
+
+  <meta name="description" content="Everything on the property at The Frozen Garden — bonfires, cycling, a farm-to-table kitchen, pond deck and more. Village resort in Gutri, Deuli, South 24 Parganas. Opening winter 2026.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thefrozengarden.in/amenities.html">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===================================================================
+       DESIGN TOKENS — change colours/fonts here; layout is Bootstrap grid
+    =================================================================== */
+    :root{
+      --bg:#0b0e1a;
+      --glass: rgba(18,25,45,0.55);
+      --ink:#eaf6fb;
+      --muted: rgba(200,230,255,0.62);
+      --muted-2: rgba(200,230,255,0.4);
+      --frost:#6effe0;
+      --frost-2:#00ffe0;
+      --bloom:#ffb4c6;
+      --violet:#b380ff;
+      --line: rgba(255,255,255,0.06);
+    }
+    html{ scroll-behavior:smooth; }
+    body{ font-family:'Space Grotesk', sans-serif; background:var(--bg); color:var(--ink); overflow-x:hidden; }
+    .serif{ font-family:'Fraunces', serif; font-weight:400; }
+    a{ text-decoration:none; }
+    ::selection{ background:rgba(0,255,200,0.25); color:#fff; }
+
+    .text-muted-1{ color:var(--muted) !important; }
+    .text-muted-2{ color:var(--muted-2) !important; }
+    .text-frost{ color:var(--frost) !important; }
+    .text-bloom{ color:var(--bloom) !important; }
+    .border-line{ border-color:var(--line) !important; }
+
+    .glass{
+      background:var(--glass); backdrop-filter:blur(12px) saturate(180%); -webkit-backdrop-filter:blur(12px) saturate(180%);
+      border:1px solid var(--line); border-radius:1.75rem;
+    }
+
+    .float-shape{ position:fixed; border-radius:50%; filter:blur(90px); opacity:.16; z-index:0; pointer-events:none; }
+    .shape-1{ width:460px; height:460px; background:radial-gradient(circle, var(--frost-2), transparent 70%); top:-8%; right:-6%; }
+    .shape-2{ width:360px; height:360px; background:radial-gradient(circle, var(--violet), transparent 70%); top:55%; left:-10%; opacity:.14; }
+    .shape-3{ width:260px; height:260px; background:radial-gradient(circle, var(--bloom), transparent 70%); bottom:4%; right:12%; opacity:.12; }
+
+    /* navbar */
+    .navbar-frost{ background:rgba(11,14,26,0.55); backdrop-filter:blur(14px) saturate(160%); -webkit-backdrop-filter:blur(14px) saturate(160%); border-bottom:1px solid var(--line); }
+    .navbar-frost .navbar-brand{ font-weight:700; font-size:1.2rem; color:var(--ink); }
+    .navbar-frost .navbar-brand i{ color:var(--frost); font-size:1.3rem; }
+    .navbar-frost .nav-link{ color:var(--muted); font-weight:500; font-size:.92rem; letter-spacing:.02em; }
+    .navbar-frost .nav-link:hover, .navbar-frost .nav-link.active{ color:var(--frost); }
+    .navbar-toggler{ border-color:var(--line); }
+
+    .btn-frost{ background:rgba(0,255,200,0.1); border:1px solid rgba(0,255,200,0.3); color:#d6fff8; border-radius:60px; font-weight:600; display:inline-flex; align-items:center; gap:.5rem; transition:.25s; }
+    .btn-frost:hover{ background:rgba(0,255,200,0.2); border-color:var(--frost); color:#fff; box-shadow:0 0 30px rgba(0,255,200,0.2); transform:translateY(-2px); }
+    .btn-ghost{ border:1px solid var(--line); color:var(--muted); border-radius:60px; font-weight:500; transition:.2s; }
+    .btn-ghost:hover{ color:var(--ink); border-color:rgba(255,255,255,0.2); }
+
+    /* page hero */
+    .page-hero{ padding-top:9rem; padding-bottom:3rem; position:relative; z-index:1; }
+    .eyebrow{ display:inline-flex; align-items:center; gap:.5rem; background:rgba(0,255,200,0.08); border:1px solid rgba(0,255,200,0.2); border-radius:100px; padding:.4rem 1.2rem; font-size:.8rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:#9efff0; }
+    .page-hero h1{ font-size:clamp(2.6rem, 5.5vw, 4.6rem); font-weight:700; line-height:1.05; letter-spacing:-.02em; background:linear-gradient(135deg,#f4fbff 0%,#b2f0e8 45%,#a0d0ff 90%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .page-hero .lede{ font-family:'Fraunces',serif; font-style:italic; color:var(--bloom); font-size:clamp(1.1rem,2vw,1.35rem); }
+
+    section{ position:relative; z-index:1; }
+    .section-eyebrow{ color:var(--frost); font-size:.8rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    .section-title{ font-size:clamp(1.9rem, 3.4vw, 2.7rem); font-weight:700; letter-spacing:-0.01em; line-height:1.15; }
+    .section-text{ color:var(--muted); font-size:1rem; line-height:1.75; }
+
+    /* amenity cards (full page — larger, photo led) */
+    .am-card{ min-height:260px; position:relative; overflow:hidden; background-size:cover; background-position:center; background-color:#10182b; border-radius:1.75rem; display:flex; flex-direction:column; justify-content:flex-end; transition:.3s; border:1px solid var(--line); }
+    .am-card::before{ content:''; position:absolute; inset:0; background:linear-gradient(to top, rgba(6,9,18,0.94) 15%, rgba(6,9,18,0.55) 55%, rgba(6,9,18,0.25)); transition:.25s; }
+    .am-card > *{ position:relative; z-index:1; }
+    .am-card:hover{ transform:translateY(-6px); border-color:rgba(0,255,200,0.25); box-shadow:0 30px 60px -20px rgba(0,0,0,0.6); }
+    .am-card:hover::before{ background:linear-gradient(to top, rgba(6,9,18,0.92) 15%, rgba(6,9,18,0.4) 55%, rgba(6,9,18,0.15)); }
+    .am-card .tag{ position:absolute; z-index:1; top:1.1rem; left:1.1rem; background:rgba(0,0,0,0.35); backdrop-filter:blur(4px); border:1px solid var(--line); border-radius:100px; width:2.6rem; height:2.6rem; display:flex; align-items:center; justify-content:center; }
+    .am-card .tag i{ color:var(--frost); font-size:1.1rem; }
+    .am-card h3{ font-size:1.2rem; font-weight:700; }
+    .am-card p{ font-size:.88rem; color:var(--ink); opacity:.85; line-height:1.55; max-width:34ch; }
+    .am-card.a1{ background-image:url('img/am-bonfire.jpg'); }
+    .am-card.a2{ background-image:url('img/am-cycle.jpg'); }
+    .am-card.a3{ background-image:url('img/am-kitchen.jpg'); }
+    .am-card.a4{ background-image:url('img/am-wifi.jpg'); }
+    .am-card.a5{ background-image:url('img/am-garden.jpg'); }
+    .am-card.a6{ background-image:url('img/am-deck.jpg'); }
+    .am-card.a7{ background-image:url('img/am-parking.jpg'); }
+    .am-card.a8{ background-image:url('img/am-care.jpg'); }
+
+    /* included checklist */
+    .inc-item{ display:flex; align-items:flex-start; gap:.85rem; padding:1.1rem 0; border-bottom:1px solid var(--line); }
+    .inc-item:last-child{ border-bottom:none; }
+    .inc-item i{ color:var(--frost); font-size:1.1rem; margin-top:.2rem; flex-shrink:0; }
+    .inc-item strong{ display:block; font-size:.98rem; }
+    .inc-item span{ color:var(--muted); font-size:.86rem; }
+    .inc-item .avail{ margin-left:auto; font-size:.72rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:.3rem .8rem; border-radius:100px; white-space:nowrap; }
+    .avail-all{ background:rgba(110,255,224,0.12); border:1px solid rgba(110,255,224,0.35); color:var(--frost); }
+    .avail-req{ background:rgba(179,128,255,0.12); border:1px solid rgba(179,128,255,0.35); color:#c9aaff; }
+
+    /* faq accordion */
+    .accordion-frost .accordion-item{ background:var(--glass); border:1px solid var(--line); border-radius:1rem !important; margin-bottom:1rem; overflow:hidden; }
+    .accordion-frost .accordion-button{ background:transparent; color:var(--ink); font-weight:600; box-shadow:none; }
+    .accordion-frost .accordion-button:not(.collapsed){ background:rgba(0,255,200,0.05); color:var(--frost); }
+    .accordion-frost .accordion-button::after{ filter:invert(1) grayscale(1) brightness(1.6); }
+    .accordion-frost .accordion-button:focus{ box-shadow:0 0 0 3px rgba(0,255,200,0.12); border-color:var(--frost); }
+    .accordion-frost .accordion-body{ color:var(--muted); font-size:.92rem; line-height:1.7; }
+
+    .cta-band{ border-radius:2rem; background:linear-gradient(135deg, rgba(0,255,200,0.1), rgba(179,128,255,0.08)); border:1px solid var(--line); }
+    .cta-band h3{ font-size:clamp(1.8rem, 3.4vw, 2.4rem); font-weight:700; max-width:20ch; margin-inline:auto; }
+    .cta-band p{ color:var(--muted); max-width:44ch; margin-inline:auto; }
+
+    footer{ border-top:1px solid var(--line); }
+    .footer-brand{ font-weight:700; font-size:1.15rem; }
+    .footer-brand i{ color:var(--frost); }
+    footer p{ color:var(--muted); font-size:.9rem; line-height:1.6; }
+    footer h5{ font-size:.82rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted-2); }
+    .footer-col a{ display:block; color:var(--muted); font-size:.9rem; margin-bottom:.7rem; transition:.2s; }
+    .footer-col a:hover{ color:var(--frost); }
+    .social-link{ color:var(--muted); width:2.6rem; height:2.6rem; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--line); transition:.2s; }
+    .social-link:hover{ color:var(--frost); border-color:rgba(0,255,200,0.3); background:rgba(0,255,200,0.06); transform:translateY(-3px); }
+
+    @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } *{ transition:none !important; } }
+  </style>
+</head>
+<body>
+
+  <div class="float-shape shape-1"></div>
+  <div class="float-shape shape-2"></div>
+  <div class="float-shape shape-3"></div>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar navbar-expand-lg navbar-frost fixed-top py-3">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html"><i class="bi bi-snow2"></i> The Frozen Garden</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav mx-auto gap-lg-4 mt-3 mt-lg-0">
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="stays.html">Stays</a></li>
+          <li class="nav-item"><a class="nav-link active" href="amenities.html">Amenities</a></li>
+          <li class="nav-item"><a class="nav-link" href="experiences.html">Experiences</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <a href="index.html#book" class="btn btn-frost px-4 py-2 mt-3 mt-lg-0"><i class="bi bi-calendar-check"></i> Check availability</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= PAGE HERO ================= -->
+  <header class="page-hero">
+    <div class="container">
+      <span class="eyebrow mb-4"><i class="bi bi-snowflake"></i> On the property</span>
+      <h1 class="my-3">Everything kept<br>simple, on purpose.</h1>
+      <p class="lede col-lg-7">No spa menu, no activity desk — just a handful of things done properly: a fire, a kitchen, a garden, and people who look after the rest.</p>
+    </div>
+  </header>
+
+  <!-- ================= AMENITY GRID ================= -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-md-6 col-lg-3">
+          <div class="am-card a1 p-4">
+            <span class="tag"><i class="bi bi-fire"></i></span>
+            <h3>Evening bonfire</h3>
+            <p class="mb-0">Every night by the garden, weather permitting.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="am-card a2 p-4">
+            <span class="tag"><i class="bi bi-bicycle"></i></span>
+            <h3>Village cycling</h3>
+            <p class="mb-0">Bicycles on request for rides through Deuli.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="am-card a3 p-4">
+            <span class="tag"><i class="bi bi-cup-hot"></i></span>
+            <h3>Farm-to-table kitchen</h3>
+            <p class="mb-0">Bengali home-style meals, cooked fresh per meal.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="am-card a4 p-4">
+            <span class="tag"><i class="bi bi-wifi"></i></span>
+            <h3>Quiet wifi zones</h3>
+            <p class="mb-0">Connected where you need it, offline where you don't.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="am-card a5 p-4">
+            <span class="tag"><i class="bi bi-tree"></i></span>
+            <h3>Private gardens</h3>
+            <p class="mb-0">Seasonal blooms tended by our own gardeners.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="am-card a6 p-4">
+            <span class="tag"><i class="bi bi-water"></i></span>
+            <h3>Pond deck</h3>
+            <p class="mb-0">A still-water deck for reading and evening tea.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="am-card a7 p-4">
+            <span class="tag"><i class="bi bi-car-front"></i></span>
+            <h3>On-site parking</h3>
+            <p class="mb-0">Free parking for self-driven guests.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="am-card a8 p-4">
+            <span class="tag"><i class="bi bi-heart-pulse"></i></span>
+            <h3>Caretaker on call</h3>
+            <p class="mb-0">A resident team, day and night, for anything you need.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INCLUDED / ON REQUEST ================= -->
+  <section class="py-5 my-4">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <span class="section-eyebrow">Good to know</span>
+          <h2 class="section-title my-3">What's included, what's on request.</h2>
+          <p class="section-text">Most of what's on the property is included in every stay. A few things just need a heads-up so we can have them ready — ask at check-in or when you book.</p>
+        </div>
+        <div class="col-lg-8">
+          <div class="glass p-4 p-lg-5">
+            <div class="inc-item">
+              <i class="bi bi-fire"></i>
+              <div><strong>Evening bonfire</strong><span>Lit daily by the garden, weather permitting.</span></div>
+              <span class="avail avail-all">Included</span>
+            </div>
+            <div class="inc-item">
+              <i class="bi bi-cup-hot"></i>
+              <div><strong>Kitchen &amp; meals</strong><span>Home-style meals cooked to order from the day's kitchen.</span></div>
+              <span class="avail avail-all">Included</span>
+            </div>
+            <div class="inc-item">
+              <i class="bi bi-wifi"></i>
+              <div><strong>Wifi</strong><span>Available in common areas and select rooms; kept out of the gardens on purpose.</span></div>
+              <span class="avail avail-all">Included</span>
+            </div>
+            <div class="inc-item">
+              <i class="bi bi-car-front"></i>
+              <div><strong>On-site parking</strong><span>Open parking for self-driven guests.</span></div>
+              <span class="avail avail-all">Included</span>
+            </div>
+            <div class="inc-item">
+              <i class="bi bi-bicycle"></i>
+              <div><strong>Bicycles</strong><span>A limited number available — let us know ahead for peak weekends.</span></div>
+              <span class="avail avail-req">On request</span>
+            </div>
+            <div class="inc-item">
+              <i class="bi bi-water"></i>
+              <div><strong>Private pond deck</strong><span>Comes with the Bloom Suite and Frost Villa; shared deck otherwise.</span></div>
+              <span class="avail avail-req">By stay type</span>
+            </div>
+            <div class="inc-item">
+              <i class="bi bi-heart-pulse"></i>
+              <div><strong>Caretaker on call</strong><span>Someone from our resident team is reachable at all hours.</span></div>
+              <span class="avail avail-all">Included</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="py-5 my-4">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <span class="section-eyebrow">A few questions</span>
+          <h2 class="section-title my-3">Before you plan your day.</h2>
+        </div>
+        <div class="col-lg-8">
+          <div class="accordion accordion-frost" id="amFaq">
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a1q">Is wifi available everywhere on the property?</button></h2>
+              <div id="a1q" class="accordion-collapse collapse" data-bs-parent="#amFaq"><div class="accordion-body">Wifi covers the common areas, kitchen and select rooms. We've kept it out of the gardens and pond deck deliberately — that's meant to be time off-screen.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2q">What time is the bonfire, and is it weather-dependent?</button></h2>
+              <div id="a2q" class="accordion-collapse collapse" data-bs-parent="#amFaq"><div class="accordion-body">The bonfire is usually lit around sunset and kept going through the evening. It's skipped or moved under cover during rain, but on a clear winter night it runs most of the year.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3q">Can outside guests use the garden or pond deck for a day visit?</button></h2>
+              <div id="a3q" class="accordion-collapse collapse" data-bs-parent="#amFaq"><div class="accordion-body">The gardens and pond deck are reserved for staying guests to keep the property quiet. We occasionally open day visits for small groups — write to us in advance and we'll see what's possible.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a4q">Is parking secure, and is there space for larger vehicles?</button></h2>
+              <div id="a4q" class="accordion-collapse collapse" data-bs-parent="#amFaq"><div class="accordion-body">Yes — on-site parking is within the property and watched over by our caretaker team. There's room for cars and small vans; let us know ahead if you're bringing anything larger.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="py-5 my-4">
+    <div class="container">
+      <div class="cta-band text-center p-5">
+        <h3 class="mb-3">See it all in person, soon.</h3>
+        <p class="mb-4">Join the early-access list and we'll hold your preferred dates before public booking opens.</p>
+        <a href="index.html#book" class="btn btn-frost px-4 py-2"><i class="bi bi-calendar-check"></i> Check availability</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer id="contact" class="py-5 mt-4">
+    <div class="container">
+      <div class="row g-4 mb-4">
+        <div class="col-lg-4">
+          <div class="footer-brand d-flex align-items-center gap-2 mb-3"><i class="bi bi-snow2"></i> The Frozen Garden</div>
+          <p style="max-width:32ch;">A village resort in Gutri, Deuli, South 24 Parganas — opening winter 2026. Far from the madding crowd.</p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-tiktok"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-spotify"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2 footer-col">
+          <h5 class="mb-3">Explore</h5>
+          <a href="about.html">About</a>
+          <a href="stays.html">Stays</a>
+          <a href="amenities.html">Amenities</a>
+          <a href="experiences.html">Experiences</a>
+        </div>
+        <div class="col-6 col-lg-3 footer-col">
+          <h5 class="mb-3">Contact</h5>
+          <a href="https://wa.me/919046788988"><i class="bi bi-whatsapp me-1"></i> +91 9046788988</a>
+          <a href="tel:+917679885472"><i class="bi bi-phone me-1"></i> +91 7679885472</a>
+          <a href="tel:+919733404225"><i class="bi bi-phone me-1"></i> +91 9733404225</a>
+          <a href="mailto:thefrozengardenvr@gmail.com"><i class="bi bi-envelope me-1"></i> frozengardenvr@gmail.com</a>
+        </div>
+        <div class="col-lg-3 footer-col">
+          <h5 class="mb-3">Address</h5>
+          <a href="#" style="pointer-events:none;"><i class="bi bi-geo-alt me-1"></i> Gutri, Deuli, Jibantala,<br>South 24 Parganas 743502</a>
+        </div>
+      </div>
+      <div class="d-flex flex-wrap justify-content-between gap-2 pt-4 border-top border-line text-muted-2" style="font-size:.82rem;">
+        <span>© 2026 The Frozen Garden. All rights reserved.</span>
+        <span>Built for a quieter kind of travel.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

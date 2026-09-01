@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact · The Frozen Garden · Village Resort, Gutri, Deuli</title>
+
+  <meta name="description" content="Get in touch with The Frozen Garden — call, WhatsApp, email or send an enquiry. Village resort in Gutri, Deuli, South 24 Parganas. Opening winter 2026.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thefrozengarden.in/contact.html">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===================================================================
+       DESIGN TOKENS — change colours/fonts here; layout is Bootstrap grid
+    =================================================================== */
+    :root{
+      --bg:#0b0e1a;
+      --glass: rgba(18,25,45,0.55);
+      --ink:#eaf6fb;
+      --muted: rgba(200,230,255,0.62);
+      --muted-2: rgba(200,230,255,0.4);
+      --frost:#6effe0;
+      --frost-2:#00ffe0;
+      --bloom:#ffb4c6;
+      --violet:#b380ff;
+      --line: rgba(255,255,255,0.06);
+    }
+    html{ scroll-behavior:smooth; }
+    body{ font-family:'Space Grotesk', sans-serif; background:var(--bg); color:var(--ink); overflow-x:hidden; }
+    .serif{ font-family:'Fraunces', serif; font-weight:400; }
+    a{ text-decoration:none; }
+    ::selection{ background:rgba(0,255,200,0.25); color:#fff; }
+
+    .text-muted-1{ color:var(--muted) !important; }
+    .text-muted-2{ color:var(--muted-2) !important; }
+    .text-frost{ color:var(--frost) !important; }
+    .text-bloom{ color:var(--bloom) !important; }
+    .border-line{ border-color:var(--line) !important; }
+
+    .glass{
+      background:var(--glass); backdrop-filter:blur(12px) saturate(180%); -webkit-backdrop-filter:blur(12px) saturate(180%);
+      border:1px solid var(--line); border-radius:1.75rem;
+    }
+
+    .float-shape{ position:fixed; border-radius:50%; filter:blur(90px); opacity:.16; z-index:0; pointer-events:none; }
+    .shape-1{ width:460px; height:460px; background:radial-gradient(circle, var(--frost-2), transparent 70%); top:-8%; right:-6%; }
+    .shape-2{ width:360px; height:360px; background:radial-gradient(circle, var(--violet), transparent 70%); top:55%; left:-10%; opacity:.14; }
+    .shape-3{ width:260px; height:260px; background:radial-gradient(circle, var(--bloom), transparent 70%); bottom:4%; right:12%; opacity:.12; }
+
+    /* navbar */
+    .navbar-frost{ background:rgba(11,14,26,0.55); backdrop-filter:blur(14px) saturate(160%); -webkit-backdrop-filter:blur(14px) saturate(160%); border-bottom:1px solid var(--line); }
+    .navbar-frost .navbar-brand{ font-weight:700; font-size:1.2rem; color:var(--ink); }
+    .navbar-frost .navbar-brand i{ color:var(--frost); font-size:1.3rem; }
+    .navbar-frost .nav-link{ color:var(--muted); font-weight:500; font-size:.92rem; letter-spacing:.02em; }
+    .navbar-frost .nav-link:hover, .navbar-frost .nav-link.active{ color:var(--frost); }
+    .navbar-toggler{ border-color:var(--line); }
+
+    .btn-frost{ background:rgba(0,255,200,0.1); border:1px solid rgba(0,255,200,0.3); color:#d6fff8; border-radius:60px; font-weight:600; display:inline-flex; align-items:center; gap:.5rem; transition:.25s; }
+    .btn-frost:hover{ background:rgba(0,255,200,0.2); border-color:var(--frost); color:#fff; box-shadow:0 0 30px rgba(0,255,200,0.2); transform:translateY(-2px); }
+    .btn-ghost{ border:1px solid var(--line); color:var(--muted); border-radius:60px; font-weight:500; transition:.2s; }
+    .btn-ghost:hover{ color:var(--ink); border-color:rgba(255,255,255,0.2); }
+
+    /* page hero */
+    .page-hero{ padding-top:9rem; padding-bottom:3rem; position:relative; z-index:1; }
+    .eyebrow{ display:inline-flex; align-items:center; gap:.5rem; background:rgba(0,255,200,0.08); border:1px solid rgba(0,255,200,0.2); border-radius:100px; padding:.4rem 1.2rem; font-size:.8rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:#9efff0; }
+    .page-hero h1{ font-size:clamp(2.6rem, 5.5vw, 4.6rem); font-weight:700; line-height:1.05; letter-spacing:-.02em; background:linear-gradient(135deg,#f4fbff 0%,#b2f0e8 45%,#a0d0ff 90%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .page-hero .lede{ font-family:'Fraunces',serif; font-style:italic; color:var(--bloom); font-size:clamp(1.1rem,2vw,1.35rem); }
+
+    section{ position:relative; z-index:1; }
+    .section-eyebrow{ color:var(--frost); font-size:.8rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    .section-title{ font-size:clamp(1.9rem, 3.4vw, 2.7rem); font-weight:700; letter-spacing:-0.01em; line-height:1.15; }
+    .section-text{ color:var(--muted); font-size:1rem; line-height:1.75; }
+
+    /* contact form */
+    .c-label{ font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted-2); }
+    .c-control{ background:rgba(0,10,20,0.4); border:1px solid var(--line); border-radius:.9rem; color:var(--ink); font-family:inherit; font-size:.92rem; padding:.75rem 1rem; width:100%; }
+    .c-control:focus{ outline:none; background:rgba(0,10,20,0.5); border-color:var(--frost); color:var(--ink); box-shadow:0 0 0 3px rgba(0,255,200,0.12); }
+    .c-control::placeholder{ color:var(--muted-2); }
+    select.c-control{ appearance:none; }
+    .btn-send{ background:linear-gradient(135deg, var(--frost-2), var(--frost)); color:#04231d; font-weight:700; border:none; border-radius:.9rem; padding:.85rem 1.6rem; font-size:.92rem; display:inline-flex; align-items:center; justify-content:center; gap:.5rem; transition:.2s; }
+    .btn-send:hover{ filter:brightness(1.08); transform:translateY(-2px); box-shadow:0 15px 30px -10px rgba(0,255,200,0.35); color:#04231d; }
+
+    /* contact info card */
+    .c-item{ display:flex; align-items:flex-start; gap:1rem; padding:1.1rem 0; border-bottom:1px solid var(--line); }
+    .c-item:last-child{ border-bottom:none; }
+    .c-item .ic{ width:2.7rem; height:2.7rem; border-radius:50%; background:rgba(0,255,200,0.08); border:1px solid rgba(0,255,200,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .c-item .ic i{ color:var(--frost); font-size:1.05rem; }
+    .c-item strong{ display:block; font-size:.98rem; margin-bottom:.15rem; }
+    .c-item a, .c-item span{ color:var(--muted); font-size:.88rem; }
+    .c-item a:hover{ color:var(--frost); }
+
+    /* getting here */
+    .route-banner{ border-radius:1.75rem; overflow:hidden; position:relative; aspect-ratio:21/9; border:1px solid var(--line); background:#0b0e1a url('img/hero.jpg') center/cover no-repeat; }
+    .route-banner::after{ content:''; position:absolute; inset:0; background:linear-gradient(0deg, rgba(11,14,26,.92) 0%, rgba(11,14,26,.2) 55%, rgba(11,14,26,.5) 100%); }
+    .route-banner .cap{ position:absolute; z-index:2; bottom:1.6rem; left:1.8rem; right:1.8rem; }
+    .route-item{ display:flex; gap:.8rem; align-items:flex-start; }
+    .route-item i{ color:var(--frost); font-size:1.1rem; margin-top:.15rem; }
+    .route-item strong{ display:block; font-size:.92rem; }
+    .route-item span{ color:var(--muted); font-size:.84rem; }
+
+    /* faq accordion */
+    .accordion-frost .accordion-item{ background:var(--glass); border:1px solid var(--line); border-radius:1rem !important; margin-bottom:1rem; overflow:hidden; }
+    .accordion-frost .accordion-button{ background:transparent; color:var(--ink); font-weight:600; box-shadow:none; }
+    .accordion-frost .accordion-button:not(.collapsed){ background:rgba(0,255,200,0.05); color:var(--frost); }
+    .accordion-frost .accordion-button::after{ filter:invert(1) grayscale(1) brightness(1.6); }
+    .accordion-frost .accordion-button:focus{ box-shadow:0 0 0 3px rgba(0,255,200,0.12); border-color:var(--frost); }
+    .accordion-frost .accordion-body{ color:var(--muted); font-size:.92rem; line-height:1.7; }
+
+    .cta-band{ border-radius:2rem; background:linear-gradient(135deg, rgba(0,255,200,0.1), rgba(179,128,255,0.08)); border:1px solid var(--line); }
+    .cta-band h3{ font-size:clamp(1.8rem, 3.4vw, 2.4rem); font-weight:700; max-width:20ch; margin-inline:auto; }
+    .cta-band p{ color:var(--muted); max-width:44ch; margin-inline:auto; }
+
+    footer{ border-top:1px solid var(--line); }
+    .footer-brand{ font-weight:700; font-size:1.15rem; }
+    .footer-brand i{ color:var(--frost); }
+    footer p{ color:var(--muted); font-size:.9rem; line-height:1.6; }
+    footer h5{ font-size:.82rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted-2); }
+    .footer-col a{ display:block; color:var(--muted); font-size:.9rem; margin-bottom:.7rem; transition:.2s; }
+    .footer-col a:hover{ color:var(--frost); }
+    .social-link{ color:var(--muted); width:2.6rem; height:2.6rem; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--line); transition:.2s; }
+    .social-link:hover{ color:var(--frost); border-color:rgba(0,255,200,0.3); background:rgba(0,255,200,0.06); transform:translateY(-3px); }
+
+    @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } *{ transition:none !important; } }
+  </style>
+</head>
+<body>
+
+  <div class="float-shape shape-1"></div>
+  <div class="float-shape shape-2"></div>
+  <div class="float-shape shape-3"></div>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar navbar-expand-lg navbar-frost fixed-top py-3">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html"><i class="bi bi-snow2"></i> The Frozen Garden</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav mx-auto gap-lg-4 mt-3 mt-lg-0">
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="stays.html">Stays</a></li>
+          <li class="nav-item"><a class="nav-link" href="amenities.html">Amenities</a></li>
+          <li class="nav-item"><a class="nav-link" href="experiences.html">Experiences</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+        </ul>
+        <a href="index.html#book" class="btn btn-frost px-4 py-2 mt-3 mt-lg-0"><i class="bi bi-calendar-check"></i> Check availability</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= PAGE HERO ================= -->
+  <header class="page-hero">
+    <div class="container">
+      <span class="eyebrow mb-4"><i class="bi bi-envelope-paper"></i> Get in touch</span>
+      <h1 class="my-3">Let's plan<br>your stay.</h1>
+      <p class="lede col-lg-7">Questions about rooms, dates, or just want to say hello before winter 2026 — reach us however's easiest.</p>
+    </div>
+  </header>
+
+  <!-- ================= CONTACT FORM + INFO ================= -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="glass p-4 p-lg-5 h-100">
+            <h3 class="mb-1">Send us a message</h3>
+            <p class="text-muted-1 mb-4">We usually reply within a day.</p>
+            <form class="row g-3" onsubmit="return false;">
+              <div class="col-md-6">
+                <label for="cName" class="c-label mb-2 d-block">Name</label>
+                <input type="text" id="cName" class="c-control" placeholder="Your name">
+              </div>
+              <div class="col-md-6">
+                <label for="cPhone" class="c-label mb-2 d-block">Phone</label>
+                <input type="tel" id="cPhone" class="c-control" placeholder="+91 00000 00000">
+              </div>
+              <div class="col-md-6">
+                <label for="cEmail" class="c-label mb-2 d-block">Email</label>
+                <input type="email" id="cEmail" class="c-control" placeholder="you@email.com">
+              </div>
+              <div class="col-md-6">
+                <label for="cReason" class="c-label mb-2 d-block">This is about</label>
+                <select id="cReason" class="c-control">
+                  <option>Booking enquiry</option>
+                  <option>Early access list</option>
+                  <option>Group / event booking</option>
+                  <option>Something else</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="cMsg" class="c-label mb-2 d-block">Message</label>
+                <textarea id="cMsg" class="c-control" rows="5" placeholder="Tell us a bit about your trip..."></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn-send px-4"><i class="bi bi-send"></i> Send message</button>
+              </div>
+            </form>
+            <div class="mt-3 d-flex align-items-center gap-2 text-muted-2" style="font-size:.82rem;"><i class="bi bi-info-circle"></i> We're opening winter 2026 — messages now go straight to our early-access list.</div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="glass p-4 p-lg-5 h-100">
+            <h3 class="mb-4">Reach us directly</h3>
+            <div class="c-item">
+              <span class="ic"><i class="bi bi-whatsapp"></i></span>
+              <div><strong>WhatsApp</strong><a href="https://wa.me/919046788988">+91 9046788988</a></div>
+            </div>
+            <div class="c-item">
+              <span class="ic"><i class="bi bi-phone"></i></span>
+              <div>
+                <strong>Call us</strong>
+                <a href="tel:+917679885472">+91 7679885472</a><br>
+                <a href="tel:+919733404225">+91 9733404225</a>
+              </div>
+            </div>
+            <div class="c-item">
+              <span class="ic"><i class="bi bi-envelope"></i></span>
+              <div><strong>Email</strong><a href="mailto:thefrozengardenvr@gmail.com">thefrozengardenvr@gmail.com</a></div>
+            </div>
+            <div class="c-item">
+              <span class="ic"><i class="bi bi-geo-alt"></i></span>
+              <div><strong>Address</strong><span>Gutri, Deuli, Jibantala,<br>South 24 Parganas 743502</span></div>
+            </div>
+            <div class="c-item">
+              <span class="ic"><i class="bi bi-clock"></i></span>
+              <div><strong>We usually reply</strong><span>Every day, 9 AM – 8 PM IST</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GETTING HERE ================= -->
+  <section class="py-5 my-4">
+    <div class="container">
+      <div class="mb-5" style="max-width:640px;">
+        <span class="section-eyebrow">Finding us</span>
+        <h2 class="section-title my-3">Getting to Gutri, Deuli.</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="route-banner">
+            <div class="cap">
+              <h5 class="serif text-white-50 mb-1" style="font-style:italic;">South 24 Parganas, West Bengal</h5>
+              <p class="mb-0" style="color:var(--muted); max-width:50ch;">About 45 minutes from the city edge — close enough for a weekend, far enough to feel like it isn't.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="glass h-100 p-4 p-lg-5 d-flex flex-column gap-3 justify-content-center">
+            <div class="route-item"><i class="bi bi-signpost-split"></i><div><strong>By road</strong><span>Self-drive or cab via Baruipur–Jibantala road; on-site parking is free for guests.</span></div></div>
+            <div class="route-item"><i class="bi bi-train-front"></i><div><strong>By train</strong><span>Nearest station is Jibantala; we can arrange a pickup with advance notice.</span></div></div>
+            <div class="route-item"><i class="bi bi-airplane"></i><div><strong>From the airport</strong><span>Roughly 1.5–2 hours from Kolkata (Netaji Subhas Chandra Bose Int'l).</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="py-5 my-4">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <span class="section-eyebrow">Before you write in</span>
+          <h2 class="section-title my-3">A few quick answers.</h2>
+        </div>
+        <div class="col-lg-8">
+          <div class="accordion accordion-frost" id="cFaq">
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c1q">How soon will I hear back?</button></h2>
+              <div id="c1q" class="accordion-collapse collapse" data-bs-parent="#cFaq"><div class="accordion-body">We reply within a day, usually sooner over WhatsApp. Phone calls are answered 9 AM – 8 PM IST; outside those hours, leave a message and we'll call back.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c2q">Can I book directly, or is this just an enquiry?</button></h2>
+              <div id="c2q" class="accordion-collapse collapse" data-bs-parent="#cFaq"><div class="accordion-body">We're opening winter 2026, so every message right now joins our early-access list. We'll confirm exact dates and rates directly with you nearer the opening.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c3q">Do you take group or event bookings?</button></h2>
+              <div id="c3q" class="accordion-collapse collapse" data-bs-parent="#cFaq"><div class="accordion-body">Yes — small groups and private gatherings are welcome. Mention it in the form or call us directly so we can plan around room availability.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c4q">Can I visit before booking?</button></h2>
+              <div id="c4q" class="accordion-collapse collapse" data-bs-parent="#cFaq"><div class="accordion-body">Once we're open, short site visits can be arranged on request — call ahead so someone from our team is free to show you around.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="py-5 my-4">
+    <div class="container">
+      <div class="cta-band text-center p-5">
+        <h3 class="mb-3">Prefer to just check dates?</h3>
+        <p class="mb-4">Skip the message and check availability directly — we'll confirm the best room for you.</p>
+        <a href="index.html#book" class="btn btn-frost px-4 py-2"><i class="bi bi-calendar-check"></i> Check availability</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer id="contact" class="py-5 mt-4">
+    <div class="container">
+      <div class="row g-4 mb-4">
+        <div class="col-lg-4">
+          <div class="footer-brand d-flex align-items-center gap-2 mb-3"><i class="bi bi-snow2"></i> The Frozen Garden</div>
+          <p style="max-width:32ch;">A village resort in Gutri, Deuli, South 24 Parganas — opening winter 2026. Far from the madding crowd.</p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-tiktok"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-spotify"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2 footer-col">
+          <h5 class="mb-3">Explore</h5>
+          <a href="about.html">About</a>
+          <a href="stays.html">Stays</a>
+          <a href="amenities.html">Amenities</a>
+          <a href="experiences.html">Experiences</a>
+        </div>
+        <div class="col-6 col-lg-3 footer-col">
+          <h5 class="mb-3">Contact</h5>
+          <a href="https://wa.me/919046788988"><i class="bi bi-whatsapp me-1"></i> +91 9046788988</a>
+          <a href="tel:+917679885472"><i class="bi bi-phone me-1"></i> +91 7679885472</a>
+          <a href="tel:+919733404225"><i class="bi bi-phone me-1"></i> +91 9733404225</a>
+          <a href="mailto:thefrozengardenvr@gmail.com"><i class="bi bi-envelope me-1"></i> frozengardenvr@gmail.com</a>
+        </div>
+        <div class="col-lg-3 footer-col">
+          <h5 class="mb-3">Address</h5>
+          <a href="#" style="pointer-events:none;"><i class="bi bi-geo-alt me-1"></i> Gutri, Deuli, Jibantala,<br>South 24 Parganas 743502</a>
+        </div>
+      </div>
+      <div class="d-flex flex-wrap justify-content-between gap-2 pt-4 border-top border-line text-muted-2" style="font-size:.82rem;">
+        <span>© 2026 The Frozen Garden. All rights reserved.</span>
+        <span>Built for a quieter kind of travel.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

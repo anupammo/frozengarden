@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us · The Frozen Garden · Village Resort, Gutri, Deuli</title>
+
+  <meta name="description" content="The story behind The Frozen Garden — a secluded village resort in Gutri, Deuli, South 24 Parganas, opening winter 2026.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thefrozengarden.in/about.html">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bs-body-bg:#0b0e1a;
+      --frost:#6effe0;
+      --frost-2:#00ffe0;
+      --bloom:#ffb4c6;
+      --violet:#b380ff;
+      --glass: rgba(18,25,45,0.55);
+      --line: rgba(255,255,255,0.08);
+      --muted: rgba(200,230,255,0.62);
+      --muted-2: rgba(200,230,255,0.4);
+    }
+    body{ font-family:'Space Grotesk', sans-serif; background:var(--bs-body-bg); color:#eaf6fb; overflow-x:hidden; }
+    .serif{ font-family:'Fraunces', serif; }
+    a{ text-decoration:none; }
+    ::selection{ background:rgba(0,255,200,0.25); color:#fff; }
+
+    .float-shape{ position:fixed; border-radius:50%; filter:blur(90px); opacity:.16; z-index:0; pointer-events:none; }
+    .shape-1{ width:460px; height:460px; background:radial-gradient(circle, var(--frost-2), transparent 70%); top:-8%; right:-6%; }
+    .shape-2{ width:360px; height:360px; background:radial-gradient(circle, var(--violet), transparent 70%); top:55%; left:-10%; opacity:.14; }
+    .shape-3{ width:260px; height:260px; background:radial-gradient(circle, var(--bloom), transparent 70%); bottom:4%; right:12%; opacity:.12; }
+
+    .glass{ background:var(--glass); backdrop-filter:blur(12px) saturate(180%); -webkit-backdrop-filter:blur(12px) saturate(180%); border:1px solid var(--line); border-radius:1.5rem; }
+
+    /* navbar */
+    .navbar-frost{ background:rgba(11,14,26,0.6); backdrop-filter:blur(14px) saturate(160%); border-bottom:1px solid var(--line); }
+    .navbar-frost .nav-link{ color:var(--muted); font-weight:500; }
+    .navbar-frost .nav-link:hover, .navbar-frost .nav-link.active{ color:var(--frost); }
+    .navbar-brand{ font-weight:700; color:#eaf6fb !important; }
+    .navbar-brand i{ color:var(--frost); }
+    .btn-frost{ background:rgba(0,255,200,0.1); border:1px solid rgba(0,255,200,0.3); color:#d6fff8; font-weight:600; border-radius:50rem; }
+    .btn-frost:hover{ background:rgba(0,255,200,0.2); border-color:var(--frost); color:#fff; }
+    .btn-outline-frost{ border:1px solid var(--line); color:var(--muted); border-radius:50rem; font-weight:500; }
+    .btn-outline-frost:hover{ color:#eaf6fb; border-color:rgba(255,255,255,0.3); background:transparent; }
+
+    section{ position:relative; z-index:1; }
+    .section-eyebrow{ color:var(--frost); font-size:.78rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+    .section-title{ font-weight:700; letter-spacing:-.01em; }
+    .muted{ color:var(--muted); }
+    .muted-2{ color:var(--muted-2); }
+
+    /* page hero */
+    .page-hero{ padding-top:9rem; padding-bottom:3.5rem; }
+    .page-hero .eyebrow{
+      display:inline-flex; align-items:center; gap:.5rem; background:rgba(0,255,200,0.08); border:1px solid rgba(0,255,200,0.2);
+      border-radius:50rem; padding:.4rem 1.2rem; font-size:.8rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#9efff0;
+    }
+    .page-hero h1{
+      font-size:clamp(2.6rem, 5.5vw, 4.6rem); font-weight:700; line-height:1.05; letter-spacing:-.02em;
+      background:linear-gradient(135deg,#f4fbff 0%,#b2f0e8 45%,#a0d0ff 90%); -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .page-hero .lede{ font-family:'Fraunces',serif; font-style:italic; color:var(--bloom); font-size:clamp(1.1rem,2vw,1.35rem); }
+
+    /* hero visual banner */
+    .story-banner{ border-radius:1.75rem; overflow:hidden; position:relative; aspect-ratio:21/9; border:1px solid var(--line); }
+    .story-banner img{ width:100%; height:100%; object-fit:cover; }
+    .story-banner::after{ content:''; position:absolute; inset:0; background:linear-gradient(0deg, rgba(11,14,26,.9) 0%, rgba(11,14,26,.15) 55%, rgba(11,14,26,.5) 100%); }
+    .story-banner .cap{ position:absolute; z-index:2; bottom:1.6rem; left:1.8rem; right:1.8rem; }
+    .story-banner .cap h5{ font-family:'Fraunces',serif; font-style:italic; font-weight:400; }
+
+    /* values */
+    .value-card{ transition:.25s; }
+    .value-card:hover{ transform:translateY(-6px); border-color:rgba(0,255,200,.25); background:rgba(18,25,45,.75); }
+    .value-card i{ color:var(--frost); font-size:1.7rem; }
+    .value-card p{ color:var(--muted); font-size:.9rem; }
+
+    /* timeline */
+    .timeline{ position:relative; padding-left:2.2rem; }
+    .timeline::before{ content:''; position:absolute; left:.4rem; top:.4rem; bottom:.4rem; width:1px; background:linear-gradient(180deg, var(--frost), var(--violet), var(--bloom)); opacity:.5; }
+    .timeline-item{ position:relative; padding-bottom:2.4rem; }
+    .timeline-item:last-child{ padding-bottom:0; }
+    .timeline-item::before{
+      content:''; position:absolute; left:-2.2rem; top:.3rem; width:.7rem; height:.7rem; border-radius:50%;
+      background:var(--frost); box-shadow:0 0 0 4px rgba(110,255,224,.15);
+    }
+    .timeline-item .tl-date{ color:var(--frost); font-size:.8rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+    .timeline-item h4{ margin-top:.3rem; }
+    .timeline-item p{ color:var(--muted); font-size:.92rem; }
+
+    /* stats band */
+    .stat-band{ border-radius:1.5rem; border:1px solid var(--line); background:linear-gradient(135deg, rgba(0,255,200,0.06), rgba(179,128,255,0.05)); }
+    .stat-band .num{ font-size:2.2rem; font-weight:700; background:linear-gradient(135deg,#eaf6fb,#a0f0ea); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .stat-band .lbl{ color:var(--muted-2); font-size:.8rem; text-transform:uppercase; letter-spacing:.06em; }
+
+    /* people */
+    .people-avatar{
+      width:5rem; height:5rem; border-radius:50%; display:flex; align-items:center; justify-content:center;
+      background:linear-gradient(150deg, rgba(0,255,200,.18), #10182b 75%); border:1px solid var(--line); font-size:1.6rem; color:var(--frost);
+      margin:0 auto 1rem;
+    }
+    .people-card{ text-align:center; }
+    .people-card h5{ margin-bottom:.1rem; }
+    .people-card .role{ color:var(--bloom); font-size:.82rem; font-family:'Fraunces',serif; font-style:italic; }
+    .people-card p.bio{ color:var(--muted); font-size:.86rem; margin-top:.6rem; }
+
+    .quote-text{ font-family:'Fraunces',serif; font-style:italic; font-size:clamp(1.2rem,2.2vw,1.6rem); }
+    .quote-who{ color:var(--muted); font-size:.9rem; }
+    .quote-who span{ color:var(--frost); font-weight:600; }
+
+    .cta-band{ background:linear-gradient(135deg, rgba(0,255,200,.1), rgba(179,128,255,.08)); border:1px solid var(--line); border-radius:1.5rem; }
+
+    footer{ border-top:1px solid var(--line); position:relative; z-index:1; }
+    footer a{ color:var(--muted); }
+    footer a:hover{ color:var(--frost); }
+    footer h6{ color:var(--muted-2); text-transform:uppercase; letter-spacing:.08em; font-size:.78rem; }
+    .social-link{ width:2.5rem; height:2.5rem; border:1px solid var(--line); border-radius:50%; display:inline-flex; align-items:center; justify-content:center; color:var(--muted); }
+    .social-link:hover{ color:var(--frost); border-color:rgba(0,255,200,.3); }
+
+    @media (prefers-reduced-motion: reduce){ *{ transition:none !important; } }
+  </style>
+</head>
+<body>
+
+  <div class="float-shape shape-1"></div>
+  <div class="float-shape shape-2"></div>
+  <div class="float-shape shape-3"></div>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar navbar-expand-lg navbar-frost fixed-top py-3">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html"><i class="bi bi-snow2"></i> The Frozen Garden</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" style="border-color:var(--line);">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav mx-auto gap-lg-4 mt-3 mt-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="stays.html">Stays</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#amenities">Amenities</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#experiences">Experiences</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+        </ul>
+        <a href="index.html#book" class="btn btn-frost px-4 mt-3 mt-lg-0"><i class="bi bi-calendar-check me-1"></i> Check availability</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= PAGE HERO ================= -->
+  <header class="page-hero">
+    <div class="container">
+      <span class="eyebrow mb-4 d-inline-flex"><i class="bi bi-snowflake"></i> Our story</span>
+      <h1 class="my-3">A garden we built<br>to be still in.</h1>
+      <p class="lede col-lg-7">Frost meets blossom — the idea behind everything we're building in Gutri, Deuli.</p>
+    </div>
+  </header>
+
+  <!-- ================= STORY BANNER ================= -->
+  <section class="pb-5">
+    <div class="container">
+      <div class="story-banner">
+        <img src="https://images.pexels.com/photos/17922976/pexels-photo-17922976.jpeg?auto=compress&cs=tinysrgb&w=1600&h=700&fit=crop" alt="The Frozen Garden — the grounds">
+        <div class="cap">
+          <h5 class="text-white-50 mb-1">Gutri, Deuli · South 24 Parganas</h5>
+          <p class="mb-0 muted" style="max-width:50ch;">Eighteen rooms and villas set around a working garden and a still pond, forty-five minutes from the city edge.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= OUR STORY ================= -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-5">
+          <span class="section-eyebrow">Why we started</span>
+          <h2 class="section-title h1 my-3">Named for a<br>contradiction.</h2>
+        </div>
+        <div class="col-lg-7">
+          <p class="muted" style="line-height:1.8; font-size:1.05rem;">The Frozen Garden started as a question: could a place feel both still and alive at once? Frost and bloom don't usually belong in the same sentence — one holds everything in place, the other keeps growing anyway. That tension is the whole idea.</p>
+          <p class="muted mt-3" style="line-height:1.8; font-size:1.05rem;">We found the land in Gutri almost by accident — a stretch of pond and open field on the edge of Deuli, quiet in a way that's hard to describe until you've stood in it. Rather than build something loud on top of it, we built around what was already there: the water, the working fields, the slow pace of a village morning.</p>
+          <p class="muted mt-3" style="line-height:1.8; font-size:1.05rem;">Every room, every meal, every path through the garden is meant to hold that same tension — calm enough to rest in, alive enough to remember.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VALUES ================= -->
+  <section class="py-5 my-3">
+    <div class="container">
+      <div class="mb-5">
+        <span class="section-eyebrow">What guides us</span>
+        <h2 class="section-title h1 my-3">Four things we don't compromise on.</h2>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-6 col-lg-3">
+          <div class="card value-card glass h-100 p-3">
+            <div class="card-body">
+              <i class="bi bi-tree d-block mb-3"></i>
+              <h5 class="h6">Keep the land as it is</h5>
+              <p class="mb-0">No landscape flattened or paved over to look "resort-like." What's native stays.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card value-card glass h-100 p-3">
+            <div class="card-body">
+              <i class="bi bi-people d-block mb-3"></i>
+              <h5 class="h6">Hire from the village</h5>
+              <p class="mb-0">Most of our team is local to Deuli — it's their place too, not just ours.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card value-card glass h-100 p-3">
+            <div class="card-body">
+              <i class="bi bi-cup-hot d-block mb-3"></i>
+              <h5 class="h6">Cook what's in season</h5>
+              <p class="mb-0">No fixed menu flown in from elsewhere — the kitchen follows the garden.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card value-card glass h-100 p-3">
+            <div class="card-body">
+              <i class="bi bi-moon-stars d-block mb-3"></i>
+              <h5 class="h6">Protect the quiet</h5>
+              <p class="mb-0">We cap how many guests stay at once. Quiet is the whole point — we won't crowd it out.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TIMELINE ================= -->
+  <section class="py-5 my-3">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <span class="section-eyebrow">Our journey</span>
+          <h2 class="section-title h1 my-3">From an idea to<br>an opening date.</h2>
+          <p class="muted">A short, honest timeline — we're still mid-build, and we'd rather show that than pretend otherwise.</p>
+        </div>
+        <div class="col-lg-8">
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="tl-date">Early 2024</span>
+              <h4 class="h6">The land in Gutri</h4>
+              <p>We found the plot in Deuli and spent months just walking it before drawing anything.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="tl-date">Late 2024</span>
+              <h4 class="h6">First cottages break ground</h4>
+              <p>Construction begins on the Garden Cottages, working around the existing trees and pond.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="tl-date">Mid 2025</span>
+              <h4 class="h6">The kitchen and gardens take shape</h4>
+              <p>Our local kitchen team joins, and the first seasonal beds go into the ground.</p>
+            </div>
+            <div class="timeline-item">
+              <span class="tl-date">Winter 2026</span>
+              <h4 class="h6">The gate opens</h4>
+              <p>The Frozen Garden welcomes its first guests. Early access reservations open before then.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STATS ================= -->
+  <section class="py-5 my-3">
+    <div class="container">
+      <div class="stat-band p-4 p-lg-5">
+        <div class="row text-center g-4">
+          <div class="col-6 col-lg-3"><div class="num">18</div><div class="lbl">Rooms &amp; villas</div></div>
+          <div class="col-6 col-lg-3"><div class="num">1</div><div class="lbl">Working pond</div></div>
+          <div class="col-6 col-lg-3"><div class="num">90%</div><div class="lbl">Team from Deuli</div></div>
+          <div class="col-6 col-lg-3"><div class="num">2026</div><div class="lbl">Opening winter</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PEOPLE ================= -->
+  <section class="py-5 my-3">
+    <div class="container">
+      <div class="mb-5">
+        <span class="section-eyebrow">Behind the garden</span>
+        <h2 class="section-title h1 my-3">A small team, close to home.</h2>
+        <p class="muted col-lg-6">Placeholder roles below — swap in real names, photos and bios closer to launch.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="people-card">
+            <div class="people-avatar"><i class="bi bi-person"></i></div>
+            <h5>Founder &amp; Caretaker</h5>
+            <div class="role">Keeps the whole place honest</div>
+            <p class="bio">Oversees the build, the garden, and the day-to-day running of the property.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="people-card">
+            <div class="people-avatar"><i class="bi bi-person"></i></div>
+            <h5>Head Gardener</h5>
+            <div class="role">Local to Deuli</div>
+            <p class="bio">Plans what grows each season and leads the garden workshops for guests.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="people-card">
+            <div class="people-avatar"><i class="bi bi-person"></i></div>
+            <h5>Head of Kitchen</h5>
+            <div class="role">Bengali home-style cooking</div>
+            <p class="bio">Runs the farm-to-table kitchen and builds every menu around what's fresh that day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= QUOTE ================= -->
+  <section class="py-5">
+    <div class="container text-center">
+      <div class="col-lg-8 mx-auto">
+        <i class="bi bi-quote fs-1" style="color:var(--bloom); opacity:.7;"></i>
+        <p class="quote-text my-4">We didn't want to build a resort that photographs well and forgets you the moment you leave. We wanted one you'd think about on a Tuesday.</p>
+        <p class="quote-who">Founder, <span>The Frozen Garden</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="py-5 my-4">
+    <div class="container">
+      <div class="cta-band text-center p-5">
+        <h3 class="h1 mb-3">Come see it for yourself, soon.</h3>
+        <p class="col-lg-6 mx-auto muted">Join the early-access list and we'll hold your preferred dates before public booking opens.</p>
+        <a href="index.html#book" class="btn btn-frost px-4 py-2 mt-2"><i class="bi bi-envelope-paper me-1"></i> Join early access</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="py-5 mt-4">
+    <div class="container">
+      <div class="row g-4 mb-4">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-2 fw-bold fs-5 mb-3"><i class="bi bi-snow2" style="color:var(--frost);"></i> The Frozen Garden</div>
+          <p class="muted" style="max-width:32ch;">A village resort in Gutri, Deuli, South 24 Parganas — opening winter 2026. Far from the madding crowd.</p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-tiktok"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-spotify"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Explore</h6>
+          <a class="d-block mb-2" href="about.html">About</a>
+          <a class="d-block mb-2" href="stays.html">Stays</a>
+          <a class="d-block mb-2" href="index.html#amenities">Amenities</a>
+          <a class="d-block mb-2" href="index.html#experiences">Experiences</a>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h6>Contact</h6>
+          <a class="d-block mb-2" href="https://wa.me/919046788988"><i class="bi bi-whatsapp me-1"></i> +91 9046788988</a>
+          <a class="d-block mb-2" href="tel:+917679885472"><i class="bi bi-phone me-1"></i> +91 7679885472</a>
+          <a class="d-block mb-2" href="tel:+919733404225"><i class="bi bi-phone me-1"></i> +91 9733404225</a>
+          <a class="d-block mb-2" href="mailto:thefrozengardenvr@gmail.com"><i class="bi bi-envelope me-1"></i> thefrozengardenvr@gmail.com</a>
+        </div>
+        <div class="col-lg-3">
+          <h6>Address</h6>
+          <p class="muted"><i class="bi bi-geo-alt me-1"></i> Gutri, Deuli, Jibantala, South 24 Parganas 743502</p>
+        </div>
+      </div>
+      <div class="d-flex flex-wrap justify-content-between gap-2 pt-3 border-top small" style="border-color:var(--line) !important; color:var(--muted-2);">
+        <span>© 2026 The Frozen Garden. All rights reserved.</span>
+        <span>Built for a quieter kind of travel.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

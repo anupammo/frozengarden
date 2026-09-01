@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stays · The Frozen Garden · Village Resort, Gutri, Deuli</title>
+
+  <meta name="description" content="Four ways to stay at The Frozen Garden — from budget garden tents to the premium riverside villa. Village resort in Gutri, Deuli, South 24 Parganas. Opening winter 2026.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thefrozengarden.in/stays.html">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===================================================================
+       DESIGN TOKENS — change colours/fonts here; layout is Bootstrap grid
+    =================================================================== */
+    :root{
+      --bg:#0b0e1a;
+      --glass: rgba(18,25,45,0.55);
+      --ink:#eaf6fb;
+      --muted: rgba(200,230,255,0.62);
+      --muted-2: rgba(200,230,255,0.4);
+      --frost:#6effe0;
+      --frost-2:#00ffe0;
+      --bloom:#ffb4c6;
+      --violet:#b380ff;
+      --line: rgba(255,255,255,0.06);
+    }
+    html{ scroll-behavior:smooth; }
+    body{ font-family:'Space Grotesk', sans-serif; background:var(--bg); color:var(--ink); overflow-x:hidden; }
+    .serif{ font-family:'Fraunces', serif; font-weight:400; }
+    a{ text-decoration:none; }
+    ::selection{ background:rgba(0,255,200,0.25); color:#fff; }
+
+    .text-muted-1{ color:var(--muted) !important; }
+    .text-muted-2{ color:var(--muted-2) !important; }
+    .text-frost{ color:var(--frost) !important; }
+    .text-bloom{ color:var(--bloom) !important; }
+    .border-line{ border-color:var(--line) !important; }
+
+    .glass{
+      background:var(--glass); backdrop-filter:blur(12px) saturate(180%); -webkit-backdrop-filter:blur(12px) saturate(180%);
+      border:1px solid var(--line); border-radius:1.75rem;
+    }
+
+    .float-shape{ position:fixed; border-radius:50%; filter:blur(90px); opacity:.16; z-index:0; pointer-events:none; }
+    .shape-1{ width:460px; height:460px; background:radial-gradient(circle, var(--frost-2), transparent 70%); top:-8%; right:-6%; }
+    .shape-2{ width:360px; height:360px; background:radial-gradient(circle, var(--violet), transparent 70%); top:55%; left:-10%; opacity:.14; }
+    .shape-3{ width:260px; height:260px; background:radial-gradient(circle, var(--bloom), transparent 70%); bottom:4%; right:12%; opacity:.12; }
+
+    /* navbar */
+    .navbar-frost{ background:rgba(11,14,26,0.55); backdrop-filter:blur(14px) saturate(160%); -webkit-backdrop-filter:blur(14px) saturate(160%); border-bottom:1px solid var(--line); }
+    .navbar-frost .navbar-brand{ font-weight:700; font-size:1.2rem; color:var(--ink); }
+    .navbar-frost .navbar-brand i{ color:var(--frost); font-size:1.3rem; }
+    .navbar-frost .nav-link{ color:var(--muted); font-weight:500; font-size:.92rem; letter-spacing:.02em; }
+    .navbar-frost .nav-link:hover, .navbar-frost .nav-link.active{ color:var(--frost); }
+    .navbar-toggler{ border-color:var(--line); }
+
+    .btn-frost{ background:rgba(0,255,200,0.1); border:1px solid rgba(0,255,200,0.3); color:#d6fff8; border-radius:60px; font-weight:600; display:inline-flex; align-items:center; gap:.5rem; transition:.25s; }
+    .btn-frost:hover{ background:rgba(0,255,200,0.2); border-color:var(--frost); color:#fff; box-shadow:0 0 30px rgba(0,255,200,0.2); transform:translateY(-2px); }
+    .btn-ghost{ border:1px solid var(--line); color:var(--muted); border-radius:60px; font-weight:500; transition:.2s; }
+    .btn-ghost:hover{ color:var(--ink); border-color:rgba(255,255,255,0.2); }
+
+    /* page hero */
+    .page-hero{ padding-top:9rem; padding-bottom:3rem; position:relative; z-index:1; }
+    .eyebrow{ display:inline-flex; align-items:center; gap:.5rem; background:rgba(0,255,200,0.08); border:1px solid rgba(0,255,200,0.2); border-radius:100px; padding:.4rem 1.2rem; font-size:.8rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:#9efff0; }
+    .page-hero h1{ font-size:clamp(2.6rem, 5.5vw, 4.6rem); font-weight:700; line-height:1.05; letter-spacing:-.02em; background:linear-gradient(135deg,#f4fbff 0%,#b2f0e8 45%,#a0d0ff 90%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .page-hero .lede{ font-family:'Fraunces',serif; font-style:italic; color:var(--bloom); font-size:clamp(1.1rem,2vw,1.35rem); }
+
+    section{ position:relative; z-index:1; }
+    .section-eyebrow{ color:var(--frost); font-size:.8rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    .section-title{ font-size:clamp(1.9rem, 3.4vw, 2.7rem); font-weight:700; letter-spacing:-0.01em; line-height:1.15; }
+    .section-text{ color:var(--muted); font-size:1rem; line-height:1.75; }
+
+    /* stay cards */
+    .stay-card{ overflow:hidden; transition:.3s; }
+    .stay-card:hover{ transform:translateY(-6px); border-color:rgba(0,255,200,0.25); box-shadow:0 30px 60px -20px rgba(0,0,0,0.6); }
+    .stay-media{ height:210px; position:relative; background-size:cover; background-position:center; background-color:#10182b; border-radius:1.75rem 1.75rem 0 0; }
+    .stay-media::after{ content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(6,9,18,0.6), rgba(6,9,18,0.05) 55%); border-radius:1.75rem 1.75rem 0 0; }
+    .stay-media.s1{ background-image:url('https://images.pexels.com/photos/4989506/pexels-photo-4989506.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'); }
+    .stay-media.s2{ background-image:url('https://images.pexels.com/photos/26863890/pexels-photo-26863890.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'); }
+    .stay-media.s3{ background-image:url('https://images.pexels.com/photos/4320444/pexels-photo-4320444.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'); }
+    .stay-media.s4{ background-image:url('https://images.pexels.com/photos/4424120/pexels-photo-4424120.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'); }
+    .stay-tag{ position:absolute; z-index:1; top:1rem; left:1rem; background:rgba(0,0,0,0.35); backdrop-filter:blur(4px); border:1px solid var(--line); border-radius:100px; padding:.3rem 1rem; font-size:.75rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--frost); }
+    .stay-tier{ position:absolute; z-index:1; top:1rem; right:1rem; border-radius:100px; padding:.3rem .9rem; font-size:.72rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; }
+    .tier-budget{ background:rgba(110,255,224,0.15); border:1px solid rgba(110,255,224,0.4); color:var(--frost); }
+    .tier-standard{ background:rgba(160,208,255,0.15); border:1px solid rgba(160,208,255,0.4); color:#a0d0ff; }
+    .tier-premium{ background:rgba(179,128,255,0.15); border:1px solid rgba(179,128,255,0.4); color:#c9aaff; }
+    .tier-luxury{ background:rgba(255,180,198,0.15); border:1px solid rgba(255,180,198,0.4); color:var(--bloom); }
+    .stay-card h3{ font-size:1.3rem; font-weight:700; }
+    .stay-card .stay-desc{ color:var(--muted); font-size:.9rem; line-height:1.6; }
+    .stay-feature{ color:var(--muted); font-size:.86rem; display:flex; align-items:center; gap:.5rem; }
+    .stay-feature i{ color:var(--frost); font-size:.95rem; flex-shrink:0; }
+    .stay-price{ font-size:1.6rem; font-weight:700; color:var(--ink); }
+    .stay-price small{ font-size:.78rem; color:var(--muted-2); font-weight:400; }
+    .stay-from{ font-size:.72rem; color:var(--muted-2); text-transform:uppercase; letter-spacing:.06em; }
+
+    /* comparison table */
+    .cmp{ border-collapse:separate; border-spacing:0; width:100%; }
+    .cmp th, .cmp td{ padding:1rem 1.1rem; border-bottom:1px solid var(--line); text-align:center; font-size:.9rem; }
+    .cmp th{ color:var(--ink); font-weight:600; }
+    .cmp thead th{ font-size:.95rem; }
+    .cmp thead .price{ font-size:.8rem; color:var(--muted-2); font-weight:400; display:block; margin-top:.2rem; }
+    .cmp td:first-child, .cmp th:first-child{ text-align:left; color:var(--muted); font-weight:500; }
+    .cmp tbody tr:hover{ background:rgba(18,25,45,0.5); }
+    .cmp .yes{ color:var(--frost); }
+    .cmp .no{ color:var(--muted-2); }
+
+    /* faq accordion */
+    .accordion-frost .accordion-item{ background:var(--glass); border:1px solid var(--line); border-radius:1rem !important; margin-bottom:1rem; overflow:hidden; }
+    .accordion-frost .accordion-button{ background:transparent; color:var(--ink); font-weight:600; box-shadow:none; }
+    .accordion-frost .accordion-button:not(.collapsed){ background:rgba(0,255,200,0.05); color:var(--frost); }
+    .accordion-frost .accordion-button::after{ filter:invert(1) grayscale(1) brightness(1.6); }
+    .accordion-frost .accordion-button:focus{ box-shadow:0 0 0 3px rgba(0,255,200,0.12); border-color:var(--frost); }
+    .accordion-frost .accordion-body{ color:var(--muted); font-size:.92rem; line-height:1.7; }
+
+    .cta-band{ border-radius:2rem; background:linear-gradient(135deg, rgba(0,255,200,0.1), rgba(179,128,255,0.08)); border:1px solid var(--line); }
+    .cta-band h3{ font-size:clamp(1.8rem, 3.4vw, 2.4rem); font-weight:700; max-width:20ch; margin-inline:auto; }
+    .cta-band p{ color:var(--muted); max-width:44ch; margin-inline:auto; }
+
+    footer{ border-top:1px solid var(--line); }
+    .footer-brand{ font-weight:700; font-size:1.15rem; }
+    .footer-brand i{ color:var(--frost); }
+    footer p{ color:var(--muted); font-size:.9rem; line-height:1.6; }
+    footer h5{ font-size:.82rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted-2); }
+    .footer-col a{ display:block; color:var(--muted); font-size:.9rem; margin-bottom:.7rem; transition:.2s; }
+    .footer-col a:hover{ color:var(--frost); }
+    .social-link{ color:var(--muted); width:2.6rem; height:2.6rem; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--line); transition:.2s; }
+    .social-link:hover{ color:var(--frost); border-color:rgba(0,255,200,0.3); background:rgba(0,255,200,0.06); transform:translateY(-3px); }
+
+    @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } *{ transition:none !important; } }
+  </style>
+</head>
+<body>
+
+  <div class="float-shape shape-1"></div>
+  <div class="float-shape shape-2"></div>
+  <div class="float-shape shape-3"></div>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar navbar-expand-lg navbar-frost fixed-top py-3">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html"><i class="bi bi-snow2"></i> The Frozen Garden</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav mx-auto gap-lg-4 mt-3 mt-lg-0">
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="stays.html">Stays</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#amenities">Amenities</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#experiences">Experiences</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+        </ul>
+        <a href="index.html#book" class="btn btn-frost px-4 py-2 mt-3 mt-lg-0"><i class="bi bi-calendar-check"></i> Check availability</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= PAGE HERO ================= -->
+  <header class="page-hero">
+    <div class="container">
+      <span class="eyebrow mb-4"><i class="bi bi-snow2"></i> Where to stay</span>
+      <h1 class="my-3">A stay for<br>every budget.</h1>
+      <p class="lede col-lg-7">Four ways to settle into the garden — from a simple canvas tent to the riverside villa. Same quiet, same fields, your call on the comfort.</p>
+    </div>
+  </header>
+
+  <!-- ================= STAY OPTIONS ================= -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- 1. BUDGET -->
+        <div class="col-md-6 col-xl-3">
+          <div class="glass stay-card h-100 d-flex flex-column">
+            <div class="stay-media s1">
+              <span class="stay-tag">Garden tents</span>
+              <span class="stay-tier tier-budget">Budget</span>
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <h3>Garden Tent</h3>
+              <p class="stay-desc">Weatherproof canvas tents on raised wooden decks, right among the garden beds. Shared washrooms, honest comfort.</p>
+              <div class="d-flex flex-column gap-2 my-3">
+                <span class="stay-feature"><i class="bi bi-people"></i> Sleeps 2</span>
+                <span class="stay-feature"><i class="bi bi-droplet"></i> Shared washrooms</span>
+                <span class="stay-feature"><i class="bi bi-cup-hot"></i> Breakfast included</span>
+                <span class="stay-feature"><i class="bi bi-fire"></i> Bonfire access</span>
+              </div>
+              <div class="mt-auto pt-3 border-top border-line">
+                <div class="stay-from">From</div>
+                <div class="stay-price">₹1,800 <small>/ night</small></div>
+                <a href="index.html#book" class="btn btn-ghost w-100 py-2 mt-3">Reserve <i class="bi bi-arrow-right ms-1"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. STANDARD -->
+        <div class="col-md-6 col-xl-3">
+          <div class="glass stay-card h-100 d-flex flex-column">
+            <div class="stay-media s2">
+              <span class="stay-tag">Garden facing</span>
+              <span class="stay-tier tier-standard">Standard</span>
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <h3>Garden Cottage</h3>
+              <p class="stay-desc">A compact private cottage opening straight onto the garden beds. Best for couples and solo stays.</p>
+              <div class="d-flex flex-column gap-2 my-3">
+                <span class="stay-feature"><i class="bi bi-people"></i> Sleeps 2</span>
+                <span class="stay-feature"><i class="bi bi-door-closed"></i> Private bathroom</span>
+                <span class="stay-feature"><i class="bi bi-cup-hot"></i> Breakfast included</span>
+                <span class="stay-feature"><i class="bi bi-wifi"></i> Wifi + AC</span>
+              </div>
+              <div class="mt-auto pt-3 border-top border-line">
+                <div class="stay-from">From</div>
+                <div class="stay-price">₹4,200 <small>/ night</small></div>
+                <a href="index.html#book" class="btn btn-ghost w-100 py-2 mt-3">Reserve <i class="bi bi-arrow-right ms-1"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. PREMIUM -->
+        <div class="col-md-6 col-xl-3">
+          <div class="glass stay-card h-100 d-flex flex-column" style="border-color:rgba(179,128,255,0.3);">
+            <div class="stay-media s3">
+              <span class="stay-tag">Pond facing</span>
+              <span class="stay-tier tier-premium">Premium</span>
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <h3>Bloom Suite</h3>
+              <p class="stay-desc">Our quietest room, set back near the pond with a private deck for morning tea and uninterrupted water views.</p>
+              <div class="d-flex flex-column gap-2 my-3">
+                <span class="stay-feature"><i class="bi bi-people"></i> Sleeps 2–3</span>
+                <span class="stay-feature"><i class="bi bi-water"></i> Private pond deck</span>
+                <span class="stay-feature"><i class="bi bi-cup-hot"></i> Breakfast + dinner</span>
+                <span class="stay-feature"><i class="bi bi-bicycle"></i> Free cycle + wifi</span>
+              </div>
+              <div class="mt-auto pt-3 border-top border-line">
+                <div class="stay-from">From</div>
+                <div class="stay-price">₹5,600 <small>/ night</small></div>
+                <a href="index.html#book" class="btn btn-frost w-100 py-2 mt-3 justify-content-center">Reserve <i class="bi bi-arrow-right ms-1"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. LUXURY -->
+        <div class="col-md-6 col-xl-3">
+          <div class="glass stay-card h-100 d-flex flex-column" style="border-color:rgba(255,180,198,0.3);">
+            <div class="stay-media s4">
+              <span class="stay-tag">Most spacious</span>
+              <span class="stay-tier tier-luxury">Luxury</span>
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <h3>Frost Villa</h3>
+              <p class="stay-desc">Our flagship two-room riverside villa with a private sit-out, garden, and dedicated caretaker. Built for families or a special escape.</p>
+              <div class="d-flex flex-column gap-2 my-3">
+                <span class="stay-feature"><i class="bi bi-people"></i> Sleeps 4–5</span>
+                <span class="stay-feature"><i class="bi bi-house-heart"></i> 2 rooms + sit-out</span>
+                <span class="stay-feature"><i class="bi bi-egg-fried"></i> All meals included</span>
+                <span class="stay-feature"><i class="bi bi-stars"></i> Private caretaker</span>
+              </div>
+              <div class="mt-auto pt-3 border-top border-line">
+                <div class="stay-from">From</div>
+                <div class="stay-price">₹7,800 <small>/ night</small></div>
+                <a href="index.html#book" class="btn btn-frost w-100 py-2 mt-3 justify-content-center">Reserve <i class="bi bi-arrow-right ms-1"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <p class="text-muted-2 mt-4 mb-0" style="font-size:.82rem;"><i class="bi bi-info-circle me-1"></i> Rates are indicative for winter 2026 and per night, taxes extra. Final tariffs confirmed at booking. Meals and inclusions vary by season.</p>
+    </div>
+  </section>
+
+  <!-- ================= COMPARISON TABLE ================= -->
+  <section class="py-5 my-4">
+    <div class="container">
+      <div class="mb-5" style="max-width:640px;">
+        <span class="section-eyebrow">Side by side</span>
+        <h2 class="section-title my-3">Compare every stay.</h2>
+        <p class="section-text">Not sure which tier fits? Here's what's included at a glance.</p>
+      </div>
+      <div class="glass p-2 p-md-4">
+        <div class="table-responsive">
+          <table class="cmp">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Garden Tent<span class="price">from ₹1,800</span></th>
+                <th>Garden Cottage<span class="price">from ₹4,200</span></th>
+                <th>Bloom Suite<span class="price">from ₹5,600</span></th>
+                <th>Frost Villa<span class="price">from ₹7,800</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Sleeps</td><td>2</td><td>2</td><td>2–3</td><td>4–5</td></tr>
+              <tr><td>Private bathroom</td><td class="no"><i class="bi bi-x-lg"></i></td><td class="yes"><i class="bi bi-check-lg"></i></td><td class="yes"><i class="bi bi-check-lg"></i></td><td class="yes"><i class="bi bi-check-lg"></i></td></tr>
+              <tr><td>Air conditioning</td><td class="no"><i class="bi bi-x-lg"></i></td><td class="yes"><i class="bi bi-check-lg"></i></td><td class="yes"><i class="bi bi-check-lg"></i></td><td class="yes"><i class="bi bi-check-lg"></i></td></tr>
+              <tr><td>Pond / water view</td><td class="no"><i class="bi bi-x-lg"></i></td><td class="no"><i class="bi bi-x-lg"></i></td><td class="yes"><i class="bi bi-check-lg"></i></td><td class="yes"><i class="bi bi-check-lg"></i></td></tr>
+              <tr><td>Meals included</td><td>Breakfast</td><td>Breakfast</td><td>B &amp; Dinner</td><td>All meals</td></tr>
+              <tr><td>Private deck / sit-out</td><td class="no"><i class="bi bi-x-lg"></i></td><td class="no"><i class="bi bi-x-lg"></i></td><td class="yes"><i class="bi bi-check-lg"></i></td><td class="yes"><i class="bi bi-check-lg"></i></td></tr>
+              <tr><td>Dedicated caretaker</td><td class="no"><i class="bi bi-x-lg"></i></td><td class="no"><i class="bi bi-x-lg"></i></td><td class="no"><i class="bi bi-x-lg"></i></td><td class="yes"><i class="bi bi-check-lg"></i></td></tr>
+              <tr><td>Bonfire &amp; garden access</td><td class="yes"><i class="bi bi-check-lg"></i></td><td class="yes"><i class="bi bi-check-lg"></i></td><td class="yes"><i class="bi bi-check-lg"></i></td><td class="yes"><i class="bi bi-check-lg"></i></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="py-5 my-4">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <span class="section-eyebrow">Good to know</span>
+          <h2 class="section-title my-3">Before you book.</h2>
+          <p class="section-text">A few common questions about staying with us.</p>
+        </div>
+        <div class="col-lg-8">
+          <div class="accordion accordion-frost" id="faq">
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">What's the check-in and check-out time?</button></h2>
+              <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Check-in is from 1:00 PM and check-out is by 11:00 AM. Early check-in and late check-out can be arranged on request, subject to availability.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">Are the tents comfortable in winter?</button></h2>
+              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Yes — our Garden Tents sit on insulated wooden decks with proper bedding, warm quilts and a heater on request. Winter nights in Deuli are crisp but the tents are built for it.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">Do you allow children and pets?</button></h2>
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Children are welcome in all stays — the Frost Villa is our best fit for families. Well-behaved pets are allowed in the cottages and villa with prior notice; please tell us when you book.</div></div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">What's your cancellation policy?</button></h2>
+              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Free cancellation up to 7 days before check-in for a full refund. Within 7 days, the first night is charged. These terms are confirmed with your booking closer to our winter 2026 opening.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="py-5 my-4">
+    <div class="container">
+      <div class="cta-band text-center p-5">
+        <h3 class="mb-3">Found your stay? Hold your dates.</h3>
+        <p class="mb-4">Join the early-access list and we'll reserve your preferred room before public booking opens.</p>
+        <a href="index.html#book" class="btn btn-frost px-4 py-2"><i class="bi bi-calendar-check"></i> Check availability</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer id="contact" class="py-5 mt-4">
+    <div class="container">
+      <div class="row g-4 mb-4">
+        <div class="col-lg-4">
+          <div class="footer-brand d-flex align-items-center gap-2 mb-3"><i class="bi bi-snow2"></i> The Frozen Garden</div>
+          <p style="max-width:32ch;">A village resort in Gutri, Deuli, South 24 Parganas — opening winter 2026. Far from the madding crowd.</p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-tiktok"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-spotify"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2 footer-col">
+          <h5 class="mb-3">Explore</h5>
+          <a href="about.html">About</a>
+          <a href="stays.html">Stays</a>
+          <a href="index.html#amenities">Amenities</a>
+          <a href="index.html#experiences">Experiences</a>
+        </div>
+        <div class="col-6 col-lg-3 footer-col">
+          <h5 class="mb-3">Contact</h5>
+          <a href="https://wa.me/919046788988"><i class="bi bi-whatsapp me-1"></i> +91 9046788988</a>
+          <a href="tel:+917679885472"><i class="bi bi-phone me-1"></i> +91 7679885472</a>
+          <a href="tel:+919733404225"><i class="bi bi-phone me-1"></i> +91 9733404225</a>
+          <a href="mailto:thefrozengardenvr@gmail.com"><i class="bi bi-envelope me-1"></i> frozengardenvr@gmail.com</a>
+        </div>
+        <div class="col-lg-3 footer-col">
+          <h5 class="mb-3">Address</h5>
+          <a href="#" style="pointer-events:none;"><i class="bi bi-geo-alt me-1"></i> Gutri, Deuli, Jibantala,<br>South 24 Parganas 743502</a>
+        </div>
+      </div>
+      <div class="d-flex flex-wrap justify-content-between gap-2 pt-4 border-top border-line text-muted-2" style="font-size:.82rem;">
+        <span>© 2026 The Frozen Garden. All rights reserved.</span>
+        <span>Built for a quieter kind of travel.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

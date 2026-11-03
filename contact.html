@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact · The Frozen Garden · Village Resort, Gutri, Deuli</title>
 
-  <meta name="description" content="Get in touch with The Frozen Garden — call, WhatsApp, email or send an enquiry. Village resort in Gutri, Deuli, South 24 Parganas. Opening winter 2026.">
+  <meta name="description" content="Get in touch with The Frozen Garden — call, WhatsApp, email or send an enquiry. Village resort in Gutri, Deuli, South 24 Parganas. Day outings and night stays near Kolkata, from ₹1,100 per head.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://thefrozengarden.in/contact.html">
 
@@ -160,7 +160,7 @@
     <div class="container">
       <span class="eyebrow mb-4"><i class="bi bi-envelope-paper"></i> Get in touch</span>
       <h1 class="my-3">Let's plan<br>your stay.</h1>
-      <p class="lede col-lg-7">Questions about rooms, dates, or just want to say hello before winter 2026 — reach us however's easiest.</p>
+      <p class="lede col-lg-7">Questions about packages, rooms, dates or a group booking? Reach us however's easiest.</p>
     </div>
   </header>
 
@@ -172,37 +172,40 @@
           <div class="glass p-4 p-lg-5 h-100">
             <h3 class="mb-1">Send us a message</h3>
             <p class="text-muted-1 mb-4">We usually reply within a day.</p>
-            <form class="row g-3" onsubmit="return false;">
+            <form class="row g-3" id="enquiryForm" novalidate>
               <div class="col-md-6">
                 <label for="cName" class="c-label mb-2 d-block">Name</label>
-                <input type="text" id="cName" class="c-control" placeholder="Your name">
+                <input type="text" id="cName" name="name" class="c-control" placeholder="Your name" required minlength="2" autocomplete="name">
               </div>
               <div class="col-md-6">
                 <label for="cPhone" class="c-label mb-2 d-block">Phone</label>
-                <input type="tel" id="cPhone" class="c-control" placeholder="+91 00000 00000">
+                <input type="tel" id="cPhone" name="phone" class="c-control" placeholder="+91 00000 00000" required autocomplete="tel">
               </div>
               <div class="col-md-6">
                 <label for="cEmail" class="c-label mb-2 d-block">Email</label>
-                <input type="email" id="cEmail" class="c-control" placeholder="you@email.com">
+                <input type="email" id="cEmail" name="email" class="c-control" placeholder="you@email.com" autocomplete="email">
               </div>
               <div class="col-md-6">
                 <label for="cReason" class="c-label mb-2 d-block">This is about</label>
-                <select id="cReason" class="c-control">
-                  <option>Booking enquiry</option>
-                  <option>Early access list</option>
-                  <option>Group / event booking</option>
-                  <option>Something else</option>
+                <select id="cReason" name="type" class="c-control">
+                  <option value="DAY_OUTING">Day outing</option>
+                  <option value="NIGHT_STAY">Night stay</option>
+                  <option value="GROUP_EVENT">Group / event booking</option>
+                  <option value="CORPORATE">Corporate outing</option>
+                  <option value="OTHER">Something else</option>
                 </select>
               </div>
               <div class="col-12">
                 <label for="cMsg" class="c-label mb-2 d-block">Message</label>
-                <textarea id="cMsg" class="c-control" rows="5" placeholder="Tell us a bit about your trip..."></textarea>
+                <textarea id="cMsg" name="message" class="c-control" rows="5" maxlength="2000" placeholder="Your date, how many guests, anything we should know..."></textarea>
+                <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;">
               </div>
               <div class="col-12">
                 <button type="submit" class="btn-send px-4"><i class="bi bi-send"></i> Send message</button>
+                <p id="enquiryStatus" class="mt-3 mb-0" role="status" aria-live="polite"></p>
               </div>
             </form>
-            <div class="mt-3 d-flex align-items-center gap-2 text-muted-2" style="font-size:.82rem;"><i class="bi bi-info-circle"></i> We're opening winter 2026 — messages now go straight to our early-access list.</div>
+            <div class="mt-3 d-flex align-items-center gap-2 text-muted-2" style="font-size:.82rem;"><i class="bi bi-info-circle"></i> Messages go straight to our booking team, who usually reply within a day. Want a price now? <a href="https://book.thefrozengarden.in/quote">Get an instant quote</a>.</div>
           </div>
         </div>
         <div class="col-lg-5">
@@ -222,7 +225,7 @@
             </div>
             <div class="c-item">
               <span class="ic"><i class="bi bi-envelope"></i></span>
-              <div><strong>Email</strong><a href="mailto:thefrozengardenvr@gmail.com">thefrozengardenvr@gmail.com</a></div>
+              <div><strong>Email</strong><a href="mailto:thefrozengardenvr@gmail.com" data-fg-href="mailto">thefrozengardenvr@gmail.com</a></div>
             </div>
             <div class="c-item">
               <span class="ic"><i class="bi bi-geo-alt"></i></span>
@@ -250,7 +253,7 @@
           <div class="route-banner">
             <div class="cap">
               <h5 class="serif text-white-50 mb-1" style="font-style:italic;">South 24 Parganas, West Bengal</h5>
-              <p class="mb-0" style="color:var(--muted); max-width:50ch;">About 45 minutes from the city edge — close enough for a weekend, far enough to feel like it isn't.</p>
+              <p class="mb-0" style="color:var(--muted); max-width:50ch;">About an hour from central Kolkata — close enough for a day out, far enough to feel like it isn't.</p>
             </div>
           </div>
         </div>
@@ -281,7 +284,7 @@
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c2q">Can I book directly, or is this just an enquiry?</button></h2>
-              <div id="c2q" class="accordion-collapse collapse" data-bs-parent="#cFaq"><div class="accordion-body">We're opening winter 2026, so every message right now joins our early-access list. We'll confirm exact dates and rates directly with you nearer the opening.</div></div>
+              <div id="c2q" class="accordion-collapse collapse" data-bs-parent="#cFaq"><div class="accordion-body">You can book directly: <a href="https://book.thefrozengarden.in/quote">get a quote online</a>, choose your date and pay a <span data-fg="policy.advancePercent">50</span>% advance to confirm. A message here works too, and our team will call you back.</div></div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c3q">Do you take group or event bookings?</button></h2>
@@ -314,12 +317,11 @@
       <div class="row g-4 mb-4">
         <div class="col-lg-4">
           <div class="footer-brand d-flex align-items-center gap-2 mb-3"><i class="bi bi-snow2"></i> The Frozen Garden</div>
-          <p style="max-width:32ch;">A village resort in Gutri, Deuli, South 24 Parganas — opening winter 2026. Far from the madding crowd.</p>
+          <p style="max-width:32ch;">A village resort in Gutri, Deuli, South 24 Parganas. Day outings and night stays, about an hour from central Kolkata.</p>
           <div class="d-flex gap-2 mt-3">
-            <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="social-link"><i class="bi bi-tiktok"></i></a>
-            <a href="#" class="social-link"><i class="bi bi-spotify"></i></a>
-            <a href="#" class="social-link"><i class="bi bi-youtube"></i></a>
+            <a href="#" class="social-link" data-fg-social="instagramUrl" aria-label="Instagram" hidden><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-link" data-fg-social="facebookUrl" aria-label="Facebook" hidden><i class="bi bi-facebook"></i></a>
+            <a href="https://wa.me/919046788988" class="social-link" data-fg-href="whatsapp" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
           </div>
         </div>
         <div class="col-6 col-lg-2 footer-col">
@@ -331,10 +333,10 @@
         </div>
         <div class="col-6 col-lg-3 footer-col">
           <h5 class="mb-3">Contact</h5>
-          <a href="https://wa.me/919046788988"><i class="bi bi-whatsapp me-1"></i> +91 9046788988</a>
+          <a href="https://wa.me/919046788988" data-fg-href="whatsapp"><i class="bi bi-whatsapp me-1"></i> <span data-fg="brand.phoneDisplay">+91 90467 88988</span></a>
           <a href="tel:+917679885472"><i class="bi bi-phone me-1"></i> +91 7679885472</a>
           <a href="tel:+919733404225"><i class="bi bi-phone me-1"></i> +91 9733404225</a>
-          <a href="mailto:thefrozengardenvr@gmail.com"><i class="bi bi-envelope me-1"></i> frozengardenvr@gmail.com</a>
+          <a href="mailto:thefrozengardenvr@gmail.com" data-fg-href="mailto"><i class="bi bi-envelope me-1"></i> <span data-fg="brand.email">thefrozengardenvr@gmail.com</span></a>
         </div>
         <div class="col-6 col-lg-2 footer-col">
           <h5 class="mb-3">Book online</h5>
@@ -345,7 +347,7 @@
         </div>
         <div class="col-lg-2 footer-col">
           <h5 class="mb-3">Address</h5>
-          <a href="#" style="pointer-events:none;"><i class="bi bi-geo-alt me-1"></i> Gutri, Deuli, Jibantala,<br>South 24 Parganas 743502</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=The%20Frozen%20Garden%20Village%20Resort%2C%20Gutri%2C%20Deuli%2C%20Jibantala" data-fg-href="maps" target="_blank" rel="noopener"><i class="bi bi-geo-alt me-1"></i> Gutri, Deuli, Jibantala,<br>South 24 Parganas 743502</a>
         </div>
       </div>
       <div class="d-flex flex-wrap justify-content-between gap-2 pt-4 border-top border-line text-muted-2" style="font-size:.82rem;">
@@ -356,5 +358,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/sync.js" defer></script>
+  <script src="js/enquiry.js" defer></script>
 </body>
 </html>

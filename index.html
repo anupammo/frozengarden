@@ -116,7 +116,7 @@
       background:
         linear-gradient(90deg, rgba(11,14,26,0.94) 0%, rgba(11,14,26,0.82) 45%, rgba(11,14,26,0.55) 100%),
         linear-gradient(to top, rgba(11,14,26,0.9), transparent 40%),
-        url('https://images.pexels.com/photos/1146708/pexels-photo-1146708.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop') center/cover no-repeat;
+        url('img/resort/hero.jpg') center/cover no-repeat;
     }
     .hero > .container{ position:relative; z-index:1; }
     .eyebrow{
@@ -142,7 +142,7 @@
     /* about */
     .about-visual{
       aspect-ratio:4/5; border-radius:2rem; position:relative; overflow:hidden;
-      background:#0b0e1a url('https://images.pexels.com/photos/17922976/pexels-photo-17922976.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&fit=crop') center/cover no-repeat; border:1px solid var(--line);
+      background:#0b0e1a url('img/resort/about-portrait.jpg') center/cover no-repeat; border:1px solid var(--line);
       display:flex; align-items:flex-end;
     }
     .about-visual::after{ content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(6,9,18,0.85) 0%, rgba(6,9,18,0.25) 35%, transparent 60%); }
@@ -156,9 +156,9 @@
     .stay-card:hover{ transform:translateY(-6px); border-color:rgba(0,255,200,0.25); box-shadow:0 30px 60px -20px rgba(0,0,0,0.6); }
     .stay-media{ height:200px; position:relative; background-size:cover; background-position:center; background-color:#10182b; border-radius:1.75rem 1.75rem 0 0; }
     .stay-media::after{ content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(6,9,18,0.6), rgba(6,9,18,0.05) 55%); border-radius:1.75rem 1.75rem 0 0; }
-    .stay-media.m1{ background-image:url('https://images.pexels.com/photos/26863890/pexels-photo-26863890.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'); }
-    .stay-media.m2{ background-image:url('https://images.pexels.com/photos/4424120/pexels-photo-4424120.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'); }
-    .stay-media.m3{ background-image:url('https://images.pexels.com/photos/4320444/pexels-photo-4320444.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'); }
+    .stay-media.m1{ background-image:url('img/resort/pkg-day.jpg'); }
+    .stay-media.m2{ background-image:url('img/resort/am-gardens.jpg'); }
+    .stay-media.m3{ background-image:url('img/resort/pkg-night.jpg'); }
     .stay-tag{
       position:absolute; z-index:1; top:1rem; left:1rem; background:rgba(0,0,0,0.35); backdrop-filter:blur(4px);
       border:1px solid var(--line); border-radius:100px; padding:.3rem 1rem; font-size:.75rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--frost);
@@ -178,14 +178,14 @@
     .amenity-card i{ font-size:1.6rem; color:var(--frost); }
     .amenity-card h4{ font-size:1rem; font-weight:600; }
     .amenity-card p{ font-size:.85rem; color:var(--ink); opacity:.82; line-height:1.55; }
-    .amenity-card.a1{ background-image:url('https://images.pexels.com/photos/3099106/pexels-photo-3099106.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'); }
-    .amenity-card.a2{ background-image:url('https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'); }
-    .amenity-card.a3{ background-image:url('https://images.pexels.com/photos/29148133/pexels-photo-29148133.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'); }
-    .amenity-card.a4{ background-image:url('https://images.pexels.com/photos/2983674/pexels-photo-2983674.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'); }
-    .amenity-card.a5{ background-image:url('https://images.pexels.com/photos/4394220/pexels-photo-4394220.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'); }
-    .amenity-card.a6{ background-image:url('https://images.pexels.com/photos/8605992/pexels-photo-8605992.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'); }
-    .amenity-card.a7{ background-image:url('https://images.pexels.com/photos/34314866/pexels-photo-34314866.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'); }
-    .amenity-card.a8{ background-image:url('https://images.pexels.com/photos/4424120/pexels-photo-4424120.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'); }
+    .amenity-card.a1{ background-image:url('img/resort/am-pool.jpg'); }
+    .amenity-card.a2{ background-image:url('img/resort/am-boating.jpg'); }
+    .amenity-card.a3{ background-image:url('img/resort/am-huts.jpg'); }
+    .amenity-card.a4{ background-image:url('img/resort/am-restaurant.jpg'); }
+    .amenity-card.a5{ background-image:url('img/resort/am-gardens.jpg'); }
+    .amenity-card.a6{ background-image:url('img/resort/am-mudhouse.jpg'); }
+    .amenity-card.a7{ background-image:url('img/resort/am-views.jpg'); }
+    .amenity-card.a8{ background-image:url('img/resort/am-gazebo.jpg'); }
 
     /* booking */
     .booking{
@@ -209,10 +209,10 @@
     /* experiences */
     .exp-card{ min-height:230px; position:relative; overflow:hidden; background-size:cover; background-position:center; border-radius:1.75rem; display:flex; flex-direction:column; justify-content:flex-end; }
     .exp-card::before{ content:''; position:absolute; inset:0; background:linear-gradient(to top, rgba(6,9,18,0.92) 8%, rgba(6,9,18,0.4) 60%, rgba(6,9,18,0.2)); }
-    .exp-card.e1{ background-image:url('https://images.pexels.com/photos/12883428/pexels-photo-12883428.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'); }
-    .exp-card.e2{ background-image:url('https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'); }
-    .exp-card.e3{ background-image:url('https://images.pexels.com/photos/4298869/pexels-photo-4298869.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'); }
-    .exp-card.e4{ background-image:url('https://images.pexels.com/photos/2106765/pexels-photo-2106765.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'); }
+    .exp-card.e1{ background-image:url('img/resort/xp-pool.jpg'); }
+    .exp-card.e2{ background-image:url('img/resort/xp-boating.jpg'); }
+    .exp-card.e3{ background-image:url('img/resort/xp-fishing.jpg'); }
+    .exp-card.e4{ background-image:url('img/resort/xp-lawn.jpg'); }
     .exp-card .num{ font-family:'Fraunces', serif; font-style:italic; font-size:2rem; color:rgba(255,255,255,0.55); position:absolute; top:1.2rem; right:1.6rem; z-index:1; text-shadow:0 2px 12px rgba(0,0,0,0.5); }
     .exp-card h4{ font-size:1.05rem; font-weight:700; position:relative; z-index:1; }
     .exp-card p{ font-size:.85rem; color:var(--ink); opacity:.85; position:relative; z-index:1; line-height:1.5; }
@@ -307,7 +307,7 @@
       <div class="row align-items-center g-5">
         <div class="col-lg-6">
           <div class="about-visual">
-            <div class="cap">The garden courtyard at dusk — pond, firepit and open fields.</div>
+            <div class="cap">A thatched gazebo among the flower beds.</div>
           </div>
         </div>
         <div class="col-lg-6">
@@ -377,18 +377,18 @@
     <div class="container">
       <div class="mb-5" style="max-width:640px;">
         <span class="section-eyebrow">On the property</span>
-        <h2 class="section-title my-3">Everything kept simple, on purpose.</h2>
+        <h2 class="section-title my-3">Room to play, room to rest.</h2>
       </div>
       <a href="amenities.html" class="btn btn-ghost px-4 py-2 mb-4 d-inline-flex">See all amenities <i class="bi bi-arrow-right ms-1"></i></a>
       <div class="row g-3">
-        <div class="col-6 col-lg-3"><div class="amenity-card a1 h-100 p-4"><i class="bi bi-fire d-block mb-3"></i><h4>Evening bonfire</h4><p class="mb-0">Every night by the garden, weather permitting.</p></div></div>
-        <div class="col-6 col-lg-3"><div class="amenity-card a2 h-100 p-4"><i class="bi bi-bicycle d-block mb-3"></i><h4>Village cycling</h4><p class="mb-0">Bicycles on request for rides through Deuli.</p></div></div>
-        <div class="col-6 col-lg-3"><div class="amenity-card a3 h-100 p-4"><i class="bi bi-cup-hot d-block mb-3"></i><h4>Farm-to-table kitchen</h4><p class="mb-0">Bengali home-style meals, cooked fresh per meal.</p></div></div>
-        <div class="col-6 col-lg-3"><div class="amenity-card a4 h-100 p-4"><i class="bi bi-wifi d-block mb-3"></i><h4>Quiet wifi zones</h4><p class="mb-0">Connected where you need it, offline where you don't.</p></div></div>
-        <div class="col-6 col-lg-3"><div class="amenity-card a5 h-100 p-4"><i class="bi bi-tree d-block mb-3"></i><h4>Private gardens</h4><p class="mb-0">Seasonal blooms tended by our own gardeners.</p></div></div>
-        <div class="col-6 col-lg-3"><div class="amenity-card a6 h-100 p-4"><i class="bi bi-water d-block mb-3"></i><h4>Pond deck</h4><p class="mb-0">A still-water deck for reading and evening tea.</p></div></div>
-        <div class="col-6 col-lg-3"><div class="amenity-card a7 h-100 p-4"><i class="bi bi-car-front d-block mb-3"></i><h4>On-site parking</h4><p class="mb-0">Free parking for self-driven guests.</p></div></div>
-        <div class="col-6 col-lg-3"><div class="amenity-card a8 h-100 p-4"><i class="bi bi-heart-pulse d-block mb-3"></i><h4>Caretaker on call</h4><p class="mb-0">A resident team, day and night, for anything you need.</p></div></div>
+        <div class="col-6 col-lg-3"><div class="amenity-card a1 h-100 p-4"><i class="bi bi-water d-block mb-3"></i><h4>Swimming pool</h4><p class="mb-0">Tiled pool, included in every package. Open until 7 PM.</p></div></div>
+        <div class="col-6 col-lg-3"><div class="amenity-card a2 h-100 p-4"><i class="bi bi-life-preserver d-block mb-3"></i><h4>Boating</h4><p class="mb-0">Pedal boats on the water channels that wind through the resort.</p></div></div>
+        <div class="col-6 col-lg-3"><div class="amenity-card a3 h-100 p-4"><i class="bi bi-house d-block mb-3"></i><h4>Open-air huts</h4><p class="mb-0">Thatched huts with seating for your group, free with every package.</p></div></div>
+        <div class="col-6 col-lg-3"><div class="amenity-card a4 h-100 p-4"><i class="bi bi-cup-hot d-block mb-3"></i><h4>Restaurant</h4><p class="mb-0">Air-conditioned dining hall where the buffet is served.</p></div></div>
+        <div class="col-6 col-lg-3"><div class="amenity-card a5 h-100 p-4"><i class="bi bi-tree d-block mb-3"></i><h4>Gardens and lawns</h4><p class="mb-0">Wide lawns and flower-lined paths for a slow walk or a game.</p></div></div>
+        <div class="col-6 col-lg-3"><div class="amenity-card a6 h-100 p-4"><i class="bi bi-house-heart d-block mb-3"></i><h4>Mud houses</h4><p class="mb-0">Thatched mud houses with A/C, right beside the water.</p></div></div>
+        <div class="col-6 col-lg-3"><div class="amenity-card a7 h-100 p-4"><i class="bi bi-building d-block mb-3"></i><h4>Rooms with a view</h4><p class="mb-0">Balconies looking out over the gardens and the huts.</p></div></div>
+        <div class="col-6 col-lg-3"><div class="amenity-card a8 h-100 p-4"><i class="bi bi-umbrella d-block mb-3"></i><h4>Gazebos on the water</h4><p class="mb-0">Thatched gazebos on the pond, reached by little bridges.</p></div></div>
       </div>
     </div>
   </section>
@@ -420,21 +420,10 @@
       </div>
       <a href="experiences.html" class="btn btn-ghost px-4 py-2 mb-4 d-inline-flex">See all experiences <i class="bi bi-arrow-right ms-1"></i></a>
       <div class="row g-3">
-        <div class="col-md-6 col-lg-3"><div class="exp-card e1 h-100 p-4"><span class="num">01</span><h4>Morning walks</h4><p class="mb-0">Guided walks through the paddy fields at sunrise.</p></div></div>
-        <div class="col-md-6 col-lg-3"><div class="exp-card e2 h-100 p-4"><span class="num">02</span><h4>Garden workshops</h4><p class="mb-0">Seasonal planting sessions with our gardeners.</p></div></div>
-        <div class="col-md-6 col-lg-3"><div class="exp-card e3 h-100 p-4"><span class="num">03</span><h4>Boat rides</h4><p class="mb-0">Short rides across the pond at golden hour.</p></div></div>
-        <div class="col-md-6 col-lg-3"><div class="exp-card e4 h-100 p-4"><span class="num">04</span><h4>Bonfire nights</h4><p class="mb-0">Stories, snacks and stargazing after dinner.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= TESTIMONIAL ================= -->
-  <section class="py-5">
-    <div class="container">
-      <div class="quote-wrap text-center mx-auto" style="max-width:820px;">
-        <i class="bi bi-quote"></i>
-        <p class="quote-text my-4">Reserved a cottage for the launch weekend on a whim — it's the first place in years that's actually made me switch my phone off.</p>
-        <p class="quote-who">Guest. <span>Kolkata</span></p>
+        <div class="col-md-6 col-lg-3"><div class="exp-card e1 h-100 p-4"><span class="num">01</span><h4>Swimming</h4><p class="mb-0">A clear, tiled pool for the whole group, children included.</p></div></div>
+        <div class="col-md-6 col-lg-3"><div class="exp-card e2 h-100 p-4"><span class="num">02</span><h4>Boating</h4><p class="mb-0">Glide through the water channels between the huts.</p></div></div>
+        <div class="col-md-6 col-lg-3"><div class="exp-card e3 h-100 p-4"><span class="num">03</span><h4>Fishing</h4><p class="mb-0">Cast a line in the quiet pond at the edge of the fields.</p></div></div>
+        <div class="col-md-6 col-lg-3"><div class="exp-card e4 h-100 p-4"><span class="num">04</span><h4>Games on the lawn</h4><p class="mb-0">Badminton, cricket, table tennis and carrom.</p></div></div>
       </div>
     </div>
   </section>

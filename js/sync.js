@@ -29,7 +29,7 @@
     return '₹' + Number(n).toLocaleString('en-IN');
   }
 
-  // "11:00" → "11:00 AM", "18:00" → "6:00 PM"
+  // "11:30" → "11:30 AM", "17:30" → "5:30 PM"
   function time(hhmm) {
     var p = String(hhmm).split(':');
     var h = Number(p[0]);
